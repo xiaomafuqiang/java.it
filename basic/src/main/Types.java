@@ -12,6 +12,30 @@ public class Types {
         // i = new Long(1000000000000);
         float f = 10000000000F;
         // f = 10000000000;
+        byte b = Byte.MAX_VALUE;
+    }
+
+    @Test
+    // ** type cast
+    public void typeCast() {
+
+        // 较小
+        short a = 10;
+        Byte b = 9;
+        // byte y = (a + b); // 容量不足
+        // short s = (a + b); // 上类型默认返回 int
+        short ss = (short)(a + b); // 默认返回 int
+        long l = (a + b); // 可以用较大接收
+
+        // 较大
+        long c = 100L;
+        // int bi = a + c; // 返回两者较大 ->long
+        long bl = a + c;
+
+        // 溢出
+        int d = Integer.MAX_VALUE;
+        int e = d + a;
+        System.out.println(e); // -2147483639
 
     }
 }
