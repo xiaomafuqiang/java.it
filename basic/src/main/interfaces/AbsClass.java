@@ -6,6 +6,12 @@ public abstract class AbsClass {
     public abstract void run(int i); // abstract 方法不可以 [private] 否则不能集成无用
 }
 
-abstract class AbsA {
-    abstract void run();
+interface J {
+    void run();
+
+    void m();
+}
+
+abstract class AbsA implements Interfaces {
+    // public abstract void run();
 }
