@@ -38,4 +38,21 @@ public class Types {
         System.out.println(e); // -2147483639
 
     }
+
+    @Test
+    public void Boxing() {
+        // string to int
+        Integer ints = new Integer(6);
+        System.out.println(ints.intValue());
+
+        // int to string
+        System.out.println(ints.toString());
+        System.out.println(Integer.toString(50));
+
+        // string to int
+        ints = new Integer("10");
+        System.out.println(ints);
+
+
+    }
 }
