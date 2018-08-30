@@ -29,6 +29,7 @@ public class Collections {
         // list.add("b");
         // list.add("c");
         list.add("d");
+        // list.add(9, "p"); // IndexOutOfBoundsException
 
         // iterator
         // 迭代器便利不能通过list修改
