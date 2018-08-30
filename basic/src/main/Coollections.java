@@ -4,6 +4,7 @@ import main.data.Student;
 import org.junit.Test;
 
 import java.util.*;
+import java.util.Map.Entry;
 
 public class Coollections {
     @Test
@@ -138,6 +139,7 @@ public class Coollections {
             System.out.println(entry.getKey());
             System.out.println(entry.getValue());
         }
+        Set<Entry<String, String>> setEntries = map.entrySet();
         System.out.println("遍历----->>>>");
 
         // keys
