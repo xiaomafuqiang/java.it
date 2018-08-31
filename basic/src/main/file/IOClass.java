@@ -166,13 +166,33 @@ public class IOClass {
 
 
     @Test
-    public void properties() {
+    public void properties() throws IOException {
         Properties prop = new Properties();
         prop.put("1", "555");
         prop.put("2", "444");
-        String s = prop.getProperty("1");
+        prop.setProperty("3", "333");
+        String s = prop.getProperty("3");
         System.out.println(s);
         // prop.entrySet();
         // prop.keySet();
+
+        // list(printer)
+        PrintWriter printWriter = new PrintWriter(new FileOutputStream(path + "properties"));
+        prop.list(printWriter);
+        printWriter.close();
+
+        // store(writer or input, comment)
+        PrintWriter printWriter2 = new PrintWriter(new FileOutputStream(path + "properties2"));
+        prop.store(printWriter2, "this is description...");
+        printWriter2.close();
+
+        // load(input)
+        Properties properties = new Properties();
+        FileReader fileReader = new FileReader(path + "properties");
+        properties.load(fileReader);
+        fileReader.close();
+        System.out.println(properties.getProperty("3"));
+        System.out.println(properties.get("1"));
+        System.out.println(properties);
     }
 }
