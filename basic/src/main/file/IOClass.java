@@ -1,10 +1,14 @@
 package main.file;
 
+import main.data.Student;
+import main.data.StudentList;
 import org.junit.Test;
 
 import java.io.*;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Properties;
 
 public class IOClass {
     String path = "/home/mark/test/";
@@ -109,5 +113,66 @@ public class IOClass {
             System.out.println(line + ":line");
         }
         br.close();
+    }
+
+    @Test
+    public void objectOutstream() throws IOException {
+        FileOutputStream fos = new FileOutputStream(path + "obj");
+        ObjectOutputStream ois = new ObjectOutputStream(fos);
+
+        // 创建序列化多个对象 不好遍历
+        Student student1 = new Student("a", 1);
+        Student student2 = new Student("b", 2);
+
+        // 可以创建一个集合或者一个对象保存
+        StudentList studentList = new StudentList(new ArrayList<>());
+        studentList.getArrayList().add(student1);
+        studentList.getArrayList().add(student2);
+
+        ois.writeObject(studentList);
+
+        ois.close();
+    }
+    @Test
+    public void objectInputStream() throws IOException, ClassNotFoundException {
+        // public static final long serialVersionUID = 1L; // 一定写这个， 否则会因为修改对象而读取失败
+
+        ObjectInputStream ois = new ObjectInputStream(new FileInputStream(path + "obj"));
+
+        // 读取对象
+        // Object o = ois.readObject();
+        // System.out.println(o);
+        // Object o2 = ois.readObject();
+        // System.out.println(o2); // 如过eof末尾就抛出异常
+        // while (true) {
+        //     try {
+        //         Object o = ois.readObject();
+        //         System.out.println(o);
+        //     } catch (EOFException e) {
+        //         System.out.println(e);
+        //         break;
+        //     } catch (NullPointerException e) {
+        //         // do with o
+        //         System.out.println(0);
+        //     }
+        // }
+
+        // 读取list方法
+        StudentList studentlist = (StudentList)ois.readObject();
+        System.out.println((studentlist.getArrayList()));
+
+        ois.close();
+    }
+
+
+    @Test
+    public void properties() {
+        Properties prop = new Properties();
+        prop.put("1", "555");
+        prop.put("2", "444");
+        String s = prop.getProperty("1");
+        System.out.println(s);
+        // prop.entrySet();
+        // prop.keySet();
     }
 }

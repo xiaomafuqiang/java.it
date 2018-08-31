@@ -1,8 +1,11 @@
 package main.data;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Student {
+public class Student implements Serializable {
+    public static final long serialVersionUID = 1L;
+
     private String name;
     private int age;
 
