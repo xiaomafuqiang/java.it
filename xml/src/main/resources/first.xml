@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+    docType: rootTag - "file.dtd"
+    <!DOCTYPE root SYSTEM "first.dtd">
+-->
+<!DOCTYPE root SYSTEM "first.dtd">
+<root>
+    <to>George</to>
+    <from>John</from>
+    <heading>
+        <head>Reminder</head>
+        <head>Reminder2</head>
+    </heading>
+    <body>Don't forget the meeting!</body>
+</root>

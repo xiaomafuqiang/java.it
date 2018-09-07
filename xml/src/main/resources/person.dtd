@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!ELEMENT person (name, age, children) >
+<!ELEMENT name (#PCDATA) >
+<!ELEMENT age ANY >
+<!ELEMENT children (child+) >
+<!ELEMENT child (#PCDATA) >
