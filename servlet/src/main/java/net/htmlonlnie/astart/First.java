@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Enumeration;
 
-@WebServlet(value = "/a", loadOnStartup = 2, initParams = {
+@WebServlet(value = "/astart", loadOnStartup = 2, initParams = {
         @WebInitParam(name = "bb", value = "bbvalue"),
         @WebInitParam(name = "aa", value = "aavalue"),
         @WebInitParam(name = "op", value = "op")

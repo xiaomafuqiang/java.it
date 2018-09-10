@@ -12,7 +12,7 @@ import java.io.InputStream;
 // file info
 
 // /main/resources/config.properties
-@WebServlet("/b")
+@WebServlet("/filepath")
 public class ReadFileInProject extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
