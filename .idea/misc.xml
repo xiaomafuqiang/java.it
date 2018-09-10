@@ -5,6 +5,7 @@
       <list>
         <option value="$PROJECT_DIR$/jdbc/pom.xml" />
         <option value="$PROJECT_DIR$/xml/pom.xml" />
+        <option value="$PROJECT_DIR$/servlet/pom.xml" />
       </list>
     </option>
   </component>
