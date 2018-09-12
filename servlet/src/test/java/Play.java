@@ -12,5 +12,17 @@ public class Play {
         System.out.println(e);
         String ee = URLDecoder.decode(e, "utf-8");
         System.out.println(ee);
+
+        boolean b = false;
+
+        if (b == bb()) {
+            System.out.println("ok");
+        }
+        System.out.println(9);
+
+    }
+
+    boolean bb() {
+        return true;
     }
 }
