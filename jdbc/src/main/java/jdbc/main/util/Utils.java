@@ -11,6 +11,23 @@ public class Utils {
     private static String url;
     private static String user;
     private static String password;
+    private static String driverClassName;
+
+    public static String getDriverClassName() {
+        return driverClassName;
+    }
+
+    public static String getUrl() {
+        return url;
+    }
+
+    public static String getUser() {
+        return user;
+    }
+
+    public static String getPassword() {
+        return password;
+    }
 
     static {
         Properties properties = new Properties();
@@ -24,11 +41,12 @@ public class Utils {
         url = properties.getProperty("url");
         user = properties.getProperty("user");
         password = properties.getProperty("password");
+        driverClassName = "com.mysql.cj.jdbc.Driver";
     }
 
     static {
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
+            Class.forName(driverClassName);
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
