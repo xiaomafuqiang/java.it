@@ -1,4 +1,4 @@
-package jdbc.main.util;
+package jdbc.util;
 
 import org.junit.Test;
 
@@ -88,6 +88,20 @@ public class Utils {
             } catch (SQLException e) {
                 e.printStackTrace();
             }
+        }
+    }
+
+    public static void executeQuery(Connection connection) {
+        PreparedStatement statement = null;
+        try {
+            statement = connection.prepareStatement("select * from user");
+            ResultSet resultSet = statement.executeQuery();
+            Utils.printMsg(resultSet);
+        } catch (SQLException e) {
+            System.out.println(e);
+            e.printStackTrace();
+        } finally {
+            Utils.close(null, statement, connection);
         }
     }
 

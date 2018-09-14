@@ -1,4 +1,4 @@
-package jdbc.main.project.dao;
+package jdbc.project.dao;
 
 public interface UserDao {
     void findAll();

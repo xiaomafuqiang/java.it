@@ -1,15 +1,15 @@
-package jdbc.main.project.dao.impl;
+package jdbc.project.dao.impl;
 
-import jdbc.main.project.dao.UserDao;
-import jdbc.main.util.Utils;
+import jdbc.project.dao.UserDao;
+import jdbc.util.Utils;
 import org.junit.Test;
 
 import java.sql.*;
 import java.util.List;
 import java.util.Map;
 
-import static jdbc.main.util.Utils.getResultList;
-import static jdbc.main.util.Utils.printMsg;
+import static jdbc.util.Utils.getResultList;
+import static jdbc.util.Utils.printMsg;
 
 public class UserDaoImpl implements UserDao {
     // 1, 获取连接对象

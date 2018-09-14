@@ -1,11 +1,11 @@
-package jdbc.main.basic;
+package jdbc.basic;
 
-import jdbc.main.util.Utils;
+import jdbc.util.Utils;
 import org.junit.Test;
 
 import java.sql.*;
 
-import static jdbc.main.util.Utils.printMsg;
+import static jdbc.util.Utils.printMsg;
 
 public class InitTry {
 
