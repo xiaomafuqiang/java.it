@@ -125,6 +125,15 @@ public class Utils {
 
     }
 
+    public static Map<Object, Object> getResultOne (ResultSet resultSet) {
+        List<Map<Object, Object>> resultList = getResultList(resultSet);
+
+        if (resultList.size() == 0) {
+            return null;
+        }
+
+        return resultList.get(0);
+    }
 
     public static List<Map<Object, Object>> getResultList(ResultSet resultSet) {
         if (resultSet == null) {

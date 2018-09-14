@@ -1,4 +1,4 @@
-package jdbc.datasource.framework.c3p0;
+package jdbc.datasource.framework.source.c3p0;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 import org.junit.Test;

@@ -1,4 +1,4 @@
-package jdbc.datasource.framework.dbcp;
+package jdbc.datasource.framework.source.dbcp;
 
 import jdbc.util.Utils;
 import org.apache.tomcat.dbcp.dbcp.BasicDataSource;
