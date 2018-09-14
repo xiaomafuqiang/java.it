@@ -13,7 +13,6 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
-import static jdbc.util.Utils.getResultList;
 import static jdbc.util.Utils.getResultOne;
 import static jdbc.util.Utils.printMsg;
 
@@ -53,14 +52,14 @@ public class DBUtilses {
                 user.setUserName((String) resultOne.get("username"));
                 return user;
             }
-        }, 6);
+        }, 2);
         System.out.println(user);
 
         //  runner.query(sql, new BeanHandler<>(User.class), 6) 一条数据
         User user1 = runner.query(sql, new BeanHandler<>(User.class), 6);
         System.out.println("beanHandler..." + user1);
 
-        //  runner.query(sql, new BeanListHandler<>(User.class))
+        //  runner.query(sql, new BeanListHandler<>(User.class)) 多条数据
         List<User> list = runner.query("select * from user", new BeanListHandler<>(User.class));
         System.out.println(list);
 
