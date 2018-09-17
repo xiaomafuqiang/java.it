@@ -11,9 +11,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.logging.Logger;
 
 @WebServlet("/update")
 public class UpdateStu extends HttpServlet {
+
+    private Logger log = Logger.getLogger(getClass().getName());
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -30,7 +33,7 @@ public class UpdateStu extends HttpServlet {
         resp.setCharacterEncoding("utf-8");
 
         Student student = Utils.parseRequstBody(req.getReader(), Student.class);
-        System.out.println(student);
+        log.info(student.toString());
 
         try {
             int res = new StudentServiceImpl().updateStu(student);
