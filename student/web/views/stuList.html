@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="/views/css/style.css">
+  <script src="/views/js/vue.js"></script>
+
+</head>
+<body>
+
+<div id="app">
+    <h1>学生列表</h1>
+
+    <ul class="ul">
+
+        <li class="item header">
+        <span class="cell">姓名 </span>
+        <span class="cell">年龄 </span>
+        <span class="cell">性别 </span>
+        <span class="cell">电话 </span>
+        <span class="cell">爱好 </span>
+        <span class="cell">其他信息 </span>
+
+        </li>
+        <li class="item" v-for="(item, index) of list" @click="showItem(item)">
+            <span class="cell"> {{ item.sname }} </span>
+            <span class="cell"> {{ item.birthday }} </span>
+            <span class="cell"> {{ item.gender }} </span>
+            <span class="cell"> {{ item.phone }} </span>
+            <span class="cell"> {{ item.hobby }} </span>
+            <span class="cell"> {{ item.info }} </span>
+            <span class="cell">
+                <a href="/views/addStu.html">添加学生</a>
+                <button @click="delStuById(item.id)">删除</button>
+            </span>
+        </li>
+    </ul>
+</div>
+
+
+
+</body>
+</html>
+
+<script >
+
+let vm = new Vue({
+    el: '#app',
+    data: {
+        list: []
+    },
+    methods: {
+        showItem (item){
+            console.log(item, this);
+        },
+        async getData(){
+            let res = await fetch('/students').then(r => r.json());
+            console.log(res);
+            res.forEach(item => {
+                item.birthday = this.formatBirthday(item.birthday);
+                item.gender = item.gender === 'M' ? '男' : '女';
+            });
+            this.list = res;
+        },
+        formatBirthday(ds){
+            let date = new Date(ds);
+            return `${date.getFullYear()}年${date.getMonth()}月${date.getDate()}日`
+        },
+        async delStuById(stuId){
+            return console.log(stuId);
+            let res = await fetch(`/del?id=${stuId}`).then(r => r.json());
+            console.log(res);
+        }
+
+
+    },
+    mounted(){
+        this.getData();
+    }
+})
+
+
+</script>

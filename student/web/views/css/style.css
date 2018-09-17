@@ -1,0 +1,21 @@
+.ul {
+    border: 1px solid blue;
+    list-style: none;
+}
+.item {
+    border-bottom: 1px solid green;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+
+}
+.item > .cell {
+    width: 200px;
+}
+.item.header {
+    color: blue;
+}
+
+.item:last-child {
+    border-bottom: none;
+}
