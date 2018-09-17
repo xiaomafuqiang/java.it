@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface StudentService {
     List<Student> findAll() throws SQLException;
+
+    int insertStu(Student student) throws SQLException;
 }

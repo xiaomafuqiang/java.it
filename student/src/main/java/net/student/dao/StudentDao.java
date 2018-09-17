@@ -13,4 +13,6 @@ public interface StudentDao {
 
     // 查询所有学生 返回 list
     List<Student> findAll () throws SQLException;
+
+    int insertStu(Student student) throws SQLException;
 }

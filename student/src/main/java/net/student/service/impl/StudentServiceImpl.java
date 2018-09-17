@@ -8,10 +8,16 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class StudentServiceImpl implements StudentService {
+    StudentDaoImpl studentDao = new StudentDaoImpl();
+
     @Override
     public List<Student> findAll()  throws SQLException {
 
-        StudentDaoImpl studentDao = new StudentDaoImpl();
         return studentDao.findAll();
+    }
+
+    @Override
+    public int insertStu(Student student) throws SQLException {
+        return studentDao.insertStu(student);
     }
 }

@@ -1,7 +1,7 @@
 package net.student.domain;
 
 
-import java.sql.Date;
+import java.util.Date;
 
 /**
  * 对象封装bean

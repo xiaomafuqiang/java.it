@@ -4,13 +4,13 @@
            xmlns="http://www.w3school.com.cn"
            elementFormDefault="qualified">
 
-    <xs:element name="note">
+    <xs:element sname="note">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="to" type="xs:string"/>
-                <xs:element name="from" type="xs:string"/>
-                <xs:element name="heading" type="xs:string"/>
-                <xs:element name="body" type="xs:string"/>
+                <xs:element sname="to" type="xs:string"/>
+                <xs:element sname="from" type="xs:string"/>
+                <xs:element sname="heading" type="xs:string"/>
+                <xs:element sname="body" type="xs:string"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
