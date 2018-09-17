@@ -12,10 +12,16 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 
-@WebServlet("/addStu")
-public class AddStudent extends HttpServlet {
+@WebServlet("/update")
+public class UpdateStu extends HttpServlet {
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        this.doPost(req, resp);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // 设置请求体编码
         req.setCharacterEncoding("utf-8");
 
@@ -23,25 +29,16 @@ public class AddStudent extends HttpServlet {
         resp.setContentType("text/html");
         resp.setCharacterEncoding("utf-8");
 
-        // 获取参数内容
         Student student = Utils.parseRequstBody(req.getReader(), Student.class);
         System.out.println(student);
 
-        StudentServiceImpl service = new StudentServiceImpl();
         try {
-            int res = service.insertStu(student);
-
+            int res = new StudentServiceImpl().updateStu(student);
             resp.getWriter().write("{\"code\":" + res +"}");
         } catch (SQLException e) {
-            System.out.println("添加异常...");
             e.printStackTrace();
         }
 
 
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        this.doGet(req, resp);
     }
 }

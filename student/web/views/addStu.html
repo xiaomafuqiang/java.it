@@ -3,18 +3,64 @@
 <head>
   <meta charset="UTF-8">
   <title>Title</title>
+  <script src="/views/js/vue.js"></script>
+
 </head>
 <body>
+<div id="app">
 
-<form action="/addStu" method="post">
-    姓名: <input type="text" name="sname"> <br>
-    年龄: <input type="date" name="birthday"> <br>
-    性别: <input type="radio" name="gender" value="M">男 <input type="radio" name="gender" value="F">女  <br>
-    电话: <input type="tel" name="phone"> <br>
-    爱好: <input type="text" name="hobby"> <br>
-    其他信息: <input type="text" name="info"> <br>
-    <button>提交</button>
-
-</form>
+        姓名: <input type="text" name="sname" v-model="formData.sname"> <br>
+        年龄: <input type="date" name="birthday" v-model="formData.birthday"> <br>
+        性别: <input type="radio" name="gender" value="M" v-model="formData.gender">男
+             <input type="radio" name="gender" value="F" v-model="formData.gender">女  <br>
+        电话: <input type="tel" name="phone" v-model="formData.phone"> <br>
+        爱好:
+            <input type="checkbox" name="hobby" v-model="formData.hobby" value="篮球">篮球
+            <input type="checkbox" name="hobby" v-model="formData.hobby" value="足球">足球
+            <input type="checkbox" name="hobby" v-model="formData.hobby" value="乒乓球">乒乓球
+            <br>
+        其他信息: <input type="text" name="info" v-model="formData.info"> <br>
+        <button @click="add()">提交</button>
+</div>
 </body>
 </html>
+
+<script >
+
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            formData: {
+                sname: '',
+                birthday: '',
+                gender: '',
+                phone: '',
+                hobby: [],
+                info: ''
+            }
+        },
+        methods: {
+            add(){
+
+                let opts = {
+                    method:"POST",   //请求方法
+                    body: JSON.stringify(this.formData),  //请求体
+                    headers: {
+                     'Content-Type': 'application/json',
+                    }
+
+                };
+                fetch("/addStu",opts).then(r => r.json()).then(res => {
+                    console.log(res);
+                    if(res.code > 0){
+                        window.location = '/views/stuList.html';
+                    } else {
+                        alert('失败');
+                    }
+
+                 }).catch(e => console.log(e));
+            }
+        }
+    })
+
+</script>

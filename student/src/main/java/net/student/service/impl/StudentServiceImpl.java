@@ -20,4 +20,19 @@ public class StudentServiceImpl implements StudentService {
     public int insertStu(Student student) throws SQLException {
         return studentDao.insertStu(student);
     }
+
+    @Override
+    public int delStu(int id) throws SQLException {
+        return studentDao.delStu(id);
+    }
+
+    @Override
+    public Student findOneById(int id) throws SQLException {
+        return studentDao.findOneById(id);
+    }
+
+    @Override
+    public int updateStu(Student student) throws SQLException {
+        return studentDao.updateStu(student);
+    }
 }

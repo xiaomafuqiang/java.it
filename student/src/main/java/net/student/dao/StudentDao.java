@@ -15,4 +15,11 @@ public interface StudentDao {
     List<Student> findAll () throws SQLException;
 
     int insertStu(Student student) throws SQLException;
+
+    int delStu(int id) throws SQLException;
+
+    Student findOneById(int id) throws SQLException;
+
+    int updateStu(Student student) throws SQLException;
+
 }
