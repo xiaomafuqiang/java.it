@@ -13,10 +13,10 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="jdbc" target="1.8" />
-      <module name="servlet" target="1.8" />
-      <module name="student" target="1.8" />
-      <module name="xml" target="1.8" />
+      <module name="jdbc" target="1.10" />
+      <module name="servlet" target="1.10" />
+      <module name="student" target="1.10" />
+      <module name="xml" target="1.10" />
     </bytecodeTargetLevel>
   </component>
 </project>
