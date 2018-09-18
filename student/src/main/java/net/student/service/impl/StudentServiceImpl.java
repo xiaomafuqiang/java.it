@@ -35,4 +35,9 @@ public class StudentServiceImpl implements StudentService {
     public int updateStu(Student student) throws SQLException {
         return studentDao.updateStu(student);
     }
+
+    @Override
+    public List<Student> searchStudent(String sname, String gender) throws SQLException {
+        return studentDao.searchStudent(sname, gender);
+    }
 }

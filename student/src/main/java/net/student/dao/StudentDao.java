@@ -22,4 +22,7 @@ public interface StudentDao {
 
     int updateStu(Student student) throws SQLException;
 
+    // 模糊查询
+    List<Student> searchStudent(String sanme, String gender) throws SQLException;
+
 }

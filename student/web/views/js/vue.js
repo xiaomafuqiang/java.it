@@ -5273,7 +5273,7 @@ function isUnknownElement (tag) {
   }
 }
 
-var isTextInputType = makeMap('text,number,password,search,email,tel,url');
+var isTextInputType = makeMap('text,number,password,searchs,email,tel,url');
 
 /*  */
 
@@ -8072,7 +8072,7 @@ function trigger (el, type) {
 
 /*  */
 
-// recursively search for possible transition defined inside the component root
+// recursively searchs for possible transition defined inside the component root
 function locateNode (vnode) {
   return vnode.componentInstance && (!vnode.data || !vnode.data.transition)
     ? locateNode(vnode.componentInstance._vnode)

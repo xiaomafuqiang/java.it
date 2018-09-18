@@ -1,5 +1,7 @@
 package net.student.servlets;
 
+import com.alibaba.fastjson.JSON;
+import net.student.domain.Student;
 import net.student.service.impl.StudentServiceImpl;
 
 import javax.servlet.ServletException;
@@ -10,20 +12,23 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 
-@WebServlet("/delStu")
-public class DelStu extends HttpServlet {
+@WebServlet("/findOne")
+public class GetOneStudentById extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.setCharacterEncoding("utf-8");
         resp.setContentType("text/html");
+        resp.setCharacterEncoding("utf-8");
 
-        int id = Integer.parseInt(req.getParameter("id"));
+        String string = req.getParameter("id");
+        int id = new Integer(string);
 
         try {
-            int res = new StudentServiceImpl().delStu(id);
-            resp.getWriter().write("{\"code\":" + res +"}");
+            Student oneById = new StudentServiceImpl().findOneById(id);
+            resp.getWriter().write(JSON.toJSONString(oneById));
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+
     }
 }

@@ -11,6 +11,17 @@
 <div id="app">
     <h1>学生列表</h1>
 
+    <div class="searchCol">
+        姓名: <input type="text" name="sname" v-model="searchs.sname"> &nbsp;
+        性别
+        <select name="gender" v-model="searchs.gender">
+            <option value="">空</option>
+            <option value="M">男</option>
+            <option value="F">女</option>
+        </select>
+
+        <button @click="search">搜索</button>
+    </div>
     <ul class="ul">
 
         <li class="item header">
@@ -22,7 +33,7 @@
         <span class="cell">其他信息 </span>
 
         </li>
-        <li class="item" v-for="(item, index) of list" @click="showItem(item)">
+        <li class="item" v-for="(item, index) of list" @click="showItem(item)" v-if="list.length>0">
             <span class="cell"> {{ item.sname }} </span>
             <span class="cell"> {{ item.birthday }} </span>
             <span class="cell"> {{ item.gender }} </span>
@@ -35,6 +46,8 @@
                 <button @click="delStuById(item.id)">删除</button>
             </span>
         </li>
+        <li v-if="list.length===0"> <h3>no Contents...</h3> </li>
+
     </ul>
 </div>
 
@@ -48,7 +61,11 @@
 let vm = new Vue({
     el: '#app',
     data: {
-        list: []
+        list: [],
+        searchs: {
+            sname: '',
+            gender: ''
+        }
     },
     methods: {
         showItem (item){
@@ -56,6 +73,9 @@ let vm = new Vue({
         },
         async getData(){
             let res = await fetch('/students').then(r => r.json());
+            this.processResult(res);
+        },
+        processResult(res) {
             console.log(res);
             res.forEach(item => {
                 item.birthday = this.formatBirthday(item.birthday);
@@ -81,6 +101,12 @@ let vm = new Vue({
         },
         updateStu(id){
             window.location = '/views/updateStu.html?id=' + id;
+        },
+        async search(){
+            console.log(this.searchs);
+            let {sname, gender} = this.searchs;
+            let res = await fetch(`/search?sname=${sname}&gender=${gender}`).then(r => r.json());
+            this.processResult(res);
         }
 
 
