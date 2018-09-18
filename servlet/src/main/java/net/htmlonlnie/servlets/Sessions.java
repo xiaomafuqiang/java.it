@@ -1,6 +1,4 @@
-package net.htmlonlnie.runs;
-
-import net.htmlonlnie.util.Utils;
+package net.htmlonlnie.servlets;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
