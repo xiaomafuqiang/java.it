@@ -1,10 +1,10 @@
-package net.htmlonlnie.listeners;
+package net.htmlonlnie.listeners.context;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 
-@WebListener
+// @WebListener
 public class ContextListener implements ServletContextListener {
     @Override
     public void contextInitialized(ServletContextEvent sce) {

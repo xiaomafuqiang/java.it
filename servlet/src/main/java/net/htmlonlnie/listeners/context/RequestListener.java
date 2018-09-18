@@ -1,10 +1,10 @@
-package net.htmlonlnie.listeners;
+package net.htmlonlnie.listeners.context;
 
 import javax.servlet.ServletRequestEvent;
 import javax.servlet.ServletRequestListener;
 import javax.servlet.annotation.WebListener;
 
-@WebListener
+// @WebListener
 public class RequestListener implements ServletRequestListener {
     @Override
     public void requestDestroyed(ServletRequestEvent sre) {
