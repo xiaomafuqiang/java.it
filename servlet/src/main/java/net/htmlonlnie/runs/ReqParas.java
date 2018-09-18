@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/p")
+@WebServlet("/multipart")
 public class ReqParas extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse resp) throws ServletException, IOException {
@@ -36,7 +36,6 @@ public class ReqParas extends HttpServlet {
             String fieldValue = item.getString();
         }
 
-        System.out.println(request);
     }
 
     @Override
