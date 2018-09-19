@@ -26,6 +26,7 @@ public class BeanServlet extends HttpServlet {
         ABean testBean = new ABean();
 
         try {
+            // 注册转换规则
             ConvertUtils.register(new DateConvert(), Date.class);
 
             BeanUtils.populate(testBean, req.getParameterMap());
