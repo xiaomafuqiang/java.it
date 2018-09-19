@@ -26,18 +26,6 @@ public class LoginServlet extends HttpServlet {
         userBean.setUsername(username);
         userBean.setPassword(password);
 
-//        try {
-//            UserBean login = new UserServiceImpl().login(userBean);
-//
-//            if (login != null) {
-//                req.getRequestDispatcher("/views/home.html").forward(req, resp);
-//            } else {
-//
-//            }
-//
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
     }
 
     @Override

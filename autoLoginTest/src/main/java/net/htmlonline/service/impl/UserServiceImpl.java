@@ -7,8 +7,9 @@ import net.htmlonline.service.UserService;
 import java.sql.SQLException;
 
 public class UserServiceImpl implements UserService {
+    private static UserDaoImpl userDao = new UserDaoImpl();
     @Override
     public UserBean login(UserBean userBean) throws SQLException {
-        return new UserDaoImpl().login(userBean);
+        return userDao.login(userBean);
     }
 }
