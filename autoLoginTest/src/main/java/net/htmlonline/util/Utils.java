@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 import org.apache.commons.beanutils.Converter;
 
+import javax.servlet.http.Cookie;
 import javax.sql.DataSource;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -37,5 +38,17 @@ public class Utils {
         }
         System.out.println("JSON BODY:::::" + builder);
         return JSON.parseObject(builder.toString(), clazz);
+    }
+
+    public static Cookie findCookie(Cookie[] cookies, String findName) {
+        if (findName == null) {
+            return null;
+        }
+        for (Cookie cookie : cookies) {
+            if (findName.equalsIgnoreCase(cookie.getName())) {
+                return cookie;
+            }
+        }
+        return null;
     }
 }
