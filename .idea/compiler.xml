@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="jdbc" />
+        <module name="playground" />
         <module name="servlet" />
         <module name="student" />
         <module name="xml" />
@@ -15,6 +16,7 @@
     <bytecodeTargetLevel>
       <module name="autoLoginTest" target="1.10" />
       <module name="jdbc" target="1.10" />
+      <module name="playground" target="1.10" />
       <module name="servlet" target="1.10" />
       <module name="student" target="1.10" />
       <module name="xml" target="1.10" />
