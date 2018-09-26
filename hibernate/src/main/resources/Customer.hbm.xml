@@ -7,12 +7,23 @@
 -->
 <hibernate-mapping>
     <!--
-        class: 定义映射 name实体类名, table 表名
+        class: 定义映射
+        [
+            name实体类名, table(可选类名) 表名  , catalog数据库名
     -->
-    <class name="net.htmlonline.domain.Customer" table="customer">
+    <class name="net.htmlonline.domain.Customer" table="customer" >
         <!--
             id: 主键定义
             == generator: 主键生成策略
+            [
+                name: 类中属性名
+                column: 表中字段
+                length: 长度( hibernate 能在无表时候根据配置创建表 有默认长度 )
+                type: 类型
+                not-null: 设置非空
+                unique: 设置唯一
+
+            ]
         -->
         <id name="id" column="id">
             <generator class="native"/>
