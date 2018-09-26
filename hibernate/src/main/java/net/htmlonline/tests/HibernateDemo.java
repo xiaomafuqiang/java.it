@@ -1,7 +1,6 @@
 package net.htmlonline.tests;
 
-import com.sun.xml.bind.v2.ContextFactory;
-import net.htmlonline.domain.User;
+import net.htmlonline.domain.Customer;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -21,11 +20,10 @@ public class HibernateDemo {
         Transaction transaction = session.beginTransaction();
 
         // 5, 编写代码
-        User user = new User();
-        user.setUid("sdfsdfsdfsdfsdf234234");
-        user.setName("xiaoma");
-
-        session.save(user);
+        Customer customer = new Customer();
+        customer.setAge(20);
+        customer.setName("xiaoMa");
+        session.save(customer);
 
         // 6, 事物提交
         transaction.commit();
