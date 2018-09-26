@@ -188,7 +188,7 @@ var hyphenate = cached(function (str) {
  * Simple bind polyfill for environments that do not support it... e.g.
  * PhantomJS 1.x. Technically we don't need this anymore since native bind is
  * now more performant in most browsers, but removing it would be breaking for
- * code that was able to run in PhantomJS 1.x, so this must be kept for
+ * code that was able to tests in PhantomJS 1.x, so this must be kept for
  * backwards compatibility.
  */
 
@@ -2956,7 +2956,7 @@ function resetSchedulerState () {
 }
 
 /**
- * Flush both queues and run the watchers.
+ * Flush both queues and tests the watchers.
  */
 function flushSchedulerQueue () {
   flushing = true;
@@ -2966,14 +2966,14 @@ function flushSchedulerQueue () {
   // This ensures that:
   // 1. Components are updated from parent to child. (because parent is always
   //    created before the child)
-  // 2. A component's user watchers are run before its render watcher (because
+  // 2. A component's user watchers are tests before its render watcher (because
   //    user watchers are created before the render watcher)
-  // 3. If a component is destroyed during a parent component's watcher run,
+  // 3. If a component is destroyed during a parent component's watcher tests,
   //    its watchers can be skipped.
   queue.sort(function (a, b) { return a.id - b.id; });
 
   // do not cache length because more watchers might be pushed
-  // as we run existing watchers
+  // as we tests existing watchers
   for (index = 0; index < queue.length; index++) {
     watcher = queue[index];
     id = watcher.id;
@@ -3055,7 +3055,7 @@ function queueWatcher (watcher) {
       queue.push(watcher);
     } else {
       // if already flushing, splice the watcher based on its id
-      // if already past its id, it will be run next immediately.
+      // if already past its id, it will be tests next immediately.
       var i = queue.length - 1;
       while (i > index && queue[i].id > watcher.id) {
         i--;

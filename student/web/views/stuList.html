@@ -84,8 +84,8 @@ let vm = new Vue({
             this.list = res;
         },
         formatBirthday(ds){
-            let date = new Date(ds);
-            return `${date.getFullYear()}年${date.getMonth()}月${date.getDate()}日`
+            let birthday = new Date(ds);
+            return `${birthday.getFullYear()}年${birthday.getMonth()}月${birthday.getDate()}日`
         },
         async delStuById(stuId){
             let conf = confirm('是否删除');

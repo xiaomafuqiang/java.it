@@ -29,7 +29,7 @@ class Crun implements B {
 
     @Override
     public B run() {
-        System.out.println("run");
+        System.out.println("tests");
         return this;
     }
 
