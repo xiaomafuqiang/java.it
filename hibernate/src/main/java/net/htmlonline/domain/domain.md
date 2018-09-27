@@ -43,3 +43,22 @@ public class Customer {
     }
 }
 ```
+
+### 3种状态
+```html
+    Session session = HibernateUtils.openSession();
+    Transaction transaction = session.beginTransaction();
+
+    GenerateStrategy strategy = new GenerateStrategy();
+    strategy.setName("xiaoMa");
+    strategy.setAge(20);
+    System.out.println(strategy); // 瞬时态 {没有 id 没有被session管理}
+
+    session.save(strategy);
+    System.out.println(strategy); // 托管态 { 有 id 有session管理 }
+
+    transaction.commit();
+    session.close();
+    System.out.println(strategy); // 游离态 { 有 id 没有被session管理 }
+
+```

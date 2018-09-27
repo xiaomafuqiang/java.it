@@ -54,7 +54,6 @@ public class CustomerDemo {
 //        Customer loadCustomer = session.load(Customer.class, save);
 //        log.info(loadCustomer.toString());
 
-
         transaction.commit();
         session.close();
     }
@@ -79,13 +78,16 @@ public class CustomerDemo {
         Session session = HibernateUtils.openSession();
         Transaction transaction = session.beginTransaction();
 
-        Customer customer = session.get(Customer.class, 8);
+        Customer customer = session.get(Customer.class, 2);
+        System.out.println(customer);
 
         session.delete(customer);
-
+        System.out.println(customer);
 
         transaction.commit();
         session.close();
+        System.out.println(customer);
+
     }
 
     @Test
