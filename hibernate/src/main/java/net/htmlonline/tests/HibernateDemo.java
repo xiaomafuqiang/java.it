@@ -1,11 +1,9 @@
 package net.htmlonline.tests;
 
 import net.htmlonline.domain.Customer;
-import net.htmlonline.utils.HIbernateUtils;
+import net.htmlonline.utils.HibernateUtils;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
 import org.junit.jupiter.api.Test;
 
@@ -14,18 +12,16 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Logger;
 
+/**
+ * 增删改查
+ * */
 public class HibernateDemo {
     private static Logger log = Logger.getLogger(HibernateDemo.class.getName());
     @Test
     public void add() {
-        // 1, 加载配置文件
-        Configuration configure = new Configuration().configure();
-        // Configuration configure = new Configuration().configure("hibernate.cfg.xml");
-        // configure.addResource("hibernate.cfg.xml");
-        // 2, 创建session factory
-        SessionFactory sessionFactory = configure.buildSessionFactory();
+
         // 3, 获取session
-        Session session = sessionFactory.openSession();
+        Session session = HibernateUtils.openSession();
         // 4, 开启食物
         Transaction transaction = session.beginTransaction();
 
@@ -43,7 +39,7 @@ public class HibernateDemo {
 
     @Test
     public void getObj() {
-        Session session = HIbernateUtils.openSession();
+        Session session = HibernateUtils.openSession();
         Transaction transaction = session.beginTransaction();
 
         Customer customer = new Customer();
@@ -65,7 +61,7 @@ public class HibernateDemo {
 
     @Test
     public void update() {
-        Session session = HIbernateUtils.openSession();
+        Session session = HibernateUtils.openSession();
         Transaction transaction = session.beginTransaction();
 
         Customer customer = session.get(Customer.class, 8);
@@ -80,7 +76,7 @@ public class HibernateDemo {
 
     @Test
     public void delete() {
-        Session session = HIbernateUtils.openSession();
+        Session session = HibernateUtils.openSession();
         Transaction transaction = session.beginTransaction();
 
         Customer customer = session.get(Customer.class, 8);
@@ -94,7 +90,7 @@ public class HibernateDemo {
 
     @Test
     public void saveOrUpdate() {
-        Session session = HIbernateUtils.openSession();
+        Session session = HibernateUtils.openSession();
         Transaction transaction = session.beginTransaction();
 
         Customer customer = new Customer();
@@ -109,7 +105,7 @@ public class HibernateDemo {
 
     @Test
     public void queryAll() {
-        Session session = HIbernateUtils.openSession();
+        Session session = HibernateUtils.openSession();
         Transaction transaction = session.beginTransaction();
 
         Query query = session.createQuery("from Customer"); // hbl

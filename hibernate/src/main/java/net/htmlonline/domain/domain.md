@@ -1,23 +1,32 @@
-package net.htmlonline.domain;
 
+##### 实体类要点
+> hibernate 根据oid区分类
+```html
+<id name="id" column="id">
+    <generator class="native"/>
+</id>
+```
+
+```java
+// 不能是final class 否则 load == get 延迟优化丧失
 public class Customer {
+    // 类型必须 包装类 否则 可能默认值有歧义
     private String name;
-    private Integer age;
     private Integer id;
 
+    // 提供默认构造器 用于hibernate反射
     public Customer() {
     }
-
 
     @Override
     public String toString() {
         return "Customer{" +
                 "name='" + name + '\'' +
-                ", age=" + age +
                 ", id=" + id +
                 '}';
     }
 
+    // 提供getter setter
     public String getName() {
         return name;
     }
@@ -25,15 +34,6 @@ public class Customer {
     public void setName(String name) {
         this.name = name;
     }
-
-    public Integer getAge() {
-        return age;
-    }
-
-    public void setAge(Integer age) {
-        this.age = age;
-    }
-
     public Integer getId() {
         return id;
     }
@@ -42,3 +42,4 @@ public class Customer {
         this.id = id;
     }
 }
+```
