@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!--
+    root configure...
+-->
+<hibernate-mapping>
+    <!--
+        class: 定义映射
+        [
+            name实体类名, table(可选类名) 表名  , catalog数据库名
+    -->
+    <class name="net.htmlonline.domain.GenerateStrategy" table="generate_strategy">
+        <!--
+            id: 主键定义
+            == generator: 主键生成策略
+            [
+                name: 类中属性名
+                column: 表中字段
+                length: 长度( hibernate 能在无表时候根据配置创建表 有默认长度 )
+                type: 类型
+                not-null: 设置非空
+                unique: 设置唯一
+
+            ]
+        -->
+        <id name="id" column="id">
+            <!--<generator class="increment"/>-->
+            <!--<generator class="identity"/>-->
+            <!--<generator class="assigned"/>-->
+            <!--<generator class="uuid"/>-->
+            <generator class="native"/>
+        </id>
+        <!--
+            property: 普通键映射关系
+        -->
+        <property name="name" column="name"/>
+        <property name="age" column="age"/>
+
+    </class>
+
+</hibernate-mapping>

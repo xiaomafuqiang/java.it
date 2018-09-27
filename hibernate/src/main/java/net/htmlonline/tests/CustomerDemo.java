@@ -15,8 +15,8 @@ import java.util.logging.Logger;
 /**
  * 增删改查
  * */
-public class HibernateDemo {
-    private static Logger log = Logger.getLogger(HibernateDemo.class.getName());
+public class CustomerDemo {
+    private static Logger log = Logger.getLogger(CustomerDemo.class.getName());
     @Test
     public void add() {
 

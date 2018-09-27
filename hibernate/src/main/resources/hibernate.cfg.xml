@@ -11,8 +11,9 @@
         <property name="hibernate.connection.password">123456</property>
 
         <!-- 配置方言 -->
-        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
 
+        <property name="hibernate.hbm2ddl.auto">update</property>
         <!-- other -->
         <!--打印sql-->
         <property name="hibernate.show_sql">true</property>
@@ -20,6 +21,7 @@
 
         <!-- 配置映射 -->
         <mapping resource="Customer.hbm.xml"/>
+        <mapping resource="GenerateStrategy.hbm.xml"/>
 
     </session-factory>
 </hibernate-configuration>
