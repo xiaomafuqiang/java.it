@@ -4,6 +4,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
+import org.junit.jupiter.api.Test;
 
 public class HibernateUtils {
 
@@ -27,6 +28,12 @@ public class HibernateUtils {
         return sessionFactory.openSession();
     }
 
+    // threadLocal 保证session一致...
+    // 不能再调用session.close() 会报错, 已经内部调用了 *******************######
+    public static Session getCurrentSession() {
+        return sessionFactory.getCurrentSession();
+    }
+
     public void run() {
         // 4, 应用
         Session session = openSession();
@@ -39,5 +46,21 @@ public class HibernateUtils {
         // 7, 释放资源
         transaction.commit();
         session.close();
+    }
+
+
+    @Test
+    public void runCurrent() {
+        // 4, 应用
+        Session session = getCurrentSession();
+        // 5, 开启事物 兼容 3.0
+        Transaction transaction = session.beginTransaction();
+
+        // 6 *** session code
+        // session.save(Object);
+
+        // 7, 释放资源
+        transaction.commit();
+        // ## session.close();
     }
 }
