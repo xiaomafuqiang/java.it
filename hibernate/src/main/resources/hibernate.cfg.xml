@@ -30,5 +30,8 @@
         <mapping resource="Customer.hbm.xml"/>
         <mapping resource="GenerateStrategy.hbm.xml"/>
 
+        <mapping resource="Student.hbm.xml"/>
+        <mapping resource="Grade.hbm.xml"/>
+
     </session-factory>
 </hibernate-configuration>

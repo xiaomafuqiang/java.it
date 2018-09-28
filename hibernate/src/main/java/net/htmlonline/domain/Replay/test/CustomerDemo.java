@@ -1,6 +1,6 @@
-package net.htmlonline.tests;
+package net.htmlonline.domain.Replay.test;
 
-import net.htmlonline.domain.Customer;
+import net.htmlonline.domain.Replay.Customer;
 import net.htmlonline.utils.HibernateUtils;
 import org.hibernate.Session;
 import org.hibernate.Transaction;

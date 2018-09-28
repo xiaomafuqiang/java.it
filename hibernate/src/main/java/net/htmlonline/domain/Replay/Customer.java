@@ -1,4 +1,4 @@
-package net.htmlonline.domain;
+package net.htmlonline.domain.Replay;
 
 public class Customer {
     private String name;

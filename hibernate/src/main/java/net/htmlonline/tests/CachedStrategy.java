@@ -1,17 +1,14 @@
 package net.htmlonline.tests;
 
-import net.htmlonline.domain.Customer;
-import net.htmlonline.domain.GenerateStrategy;
+import net.htmlonline.domain.Replay.Customer;
 import net.htmlonline.utils.HibernateUtils;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.query.Query;
 import org.junit.jupiter.api.Test;
 
 import java.io.Serializable;
-import java.util.List;
 
 public class CachedStrategy {
     @Test
