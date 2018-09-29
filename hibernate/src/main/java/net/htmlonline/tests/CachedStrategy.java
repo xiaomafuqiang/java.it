@@ -1,6 +1,6 @@
 package net.htmlonline.tests;
 
-import net.htmlonline.domain.Replay.Customer;
+import net.htmlonline.domain.Replay.CustomerMe;
 import net.htmlonline.utils.HibernateUtils;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -19,13 +19,13 @@ public class CachedStrategy {
 
         Transaction transaction = session.beginTransaction();
 
-        Customer customer = session.get(Customer.class, 3); // 发送 sql
-        Customer customer1 = session.get(Customer.class, 3); // 不发送sql 一级缓存
+        CustomerMe customer = session.get(CustomerMe.class, 3); // 发送 sql
+        CustomerMe customer1 = session.get(CustomerMe.class, 3); // 不发送sql 一级缓存
         System.out.println(customer == customer1); // true
 
-        Customer customer2 = new Customer();
+        CustomerMe customer2 = new CustomerMe();
         Serializable id = session.save(customer2); // 发送增加sql
-        Customer customer3 = session.get(Customer.class, id); // 不发送sql
+        CustomerMe customer3 = session.get(CustomerMe.class, id); // 不发送sql
         System.out.println(customer2 == customer3); // true
 
         transaction.commit();
@@ -36,7 +36,7 @@ public class CachedStrategy {
     public void run2() {
         Session session = HibernateUtils.openSession();
 
-        Customer customer = session.get(Customer.class, 4);
+        CustomerMe customer = session.get(CustomerMe.class, 4);
         System.out.println(customer);
 
         Transaction transaction = session.beginTransaction();

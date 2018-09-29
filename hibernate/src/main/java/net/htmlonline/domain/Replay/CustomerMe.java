@@ -1,17 +1,17 @@
 package net.htmlonline.domain.Replay;
 
-public class Customer {
+public class CustomerMe {
     private String name;
     private Integer age;
     private Integer id;
 
-    public Customer() {
+    public CustomerMe() {
     }
 
 
     @Override
     public String toString() {
-        return "Customer{" +
+        return "CustomerMe{" +
                 "name='" + name + '\'' +
                 ", age=" + age +
                 ", id=" + id +

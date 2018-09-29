@@ -4555,7 +4555,7 @@ function renderMixin (Vue) {
     if (!(vnode instanceof VNode)) {
       if ("development" !== 'production' && Array.isArray(vnode)) {
         warn(
-          'Multiple root nodes returned from render function. Render function ' +
+          'ontomany root nodes returned from render function. Render function ' +
           'should return a single root node.',
           vm
         );

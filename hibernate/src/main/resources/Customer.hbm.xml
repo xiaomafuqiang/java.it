@@ -6,34 +6,29 @@
     root configure...
 -->
 <hibernate-mapping>
-    <!--
-        class: 定义映射
-        [
-            name实体类名, table(可选类名) 表名  , catalog数据库名
-    -->
-    <class name="net.htmlonline.domain.Replay.Customer" table="customer" >
-        <!--
-            id: 主键定义
-            == generator: 主键生成策略
-            [
-                name: 类中属性名
-                column: 表中字段
-                length: 长度( hibernate 能在无表时候根据配置创建表 有默认长度 )
-                type: 类型
-                not-null: 设置非空
-                unique: 设置唯一
-
-            ]
-        -->
-        <id name="id" column="id">
+    <class name="net.htmlonline.domain.multiple.ontomany.Customer" table="cst_customer">
+        <id name="cust_id">
             <generator class="native"/>
         </id>
+        <property name="cust_name"/>
+        <property name="cust_source"/>
+        <property name="cust_industry"/>
+        <property name="cust_level"/>
+        <property name="cust_phone"/>
+        <property name="cust_mobile"/>
+
         <!--
-            property: 普通键映射关系
+            set: 配置多对一 多的方
+                - name: 多的一方属性集合名
+                key:
+                    - column: 多的一样外检名称
+                on-to-many:
+                    - class: 多的一方全类名
         -->
-        <property name="name" column="name"/>
-        <property name="age" column="age"/>
+        <set name="linkMans">
+            <key column="lkm_cust_id"/>
+            <one-to-many class="net.htmlonline.domain.multiple.ontomany.LinkMan"/>
+        </set>
 
     </class>
-
 </hibernate-mapping>

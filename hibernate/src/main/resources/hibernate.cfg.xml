@@ -27,11 +27,14 @@
         <property name="hibernate.format_sql">true</property>
 
         <!-- 配置映射 -->
-        <mapping resource="Customer.hbm.xml"/>
+        <mapping resource="CustomerMe.hbm.xml"/>
         <mapping resource="GenerateStrategy.hbm.xml"/>
 
-        <mapping resource="Student.hbm.xml"/>
-        <mapping resource="Grade.hbm.xml"/>
+        <!--
+            ###### 一对多 配置 ++++++++++++++
+        -->
+        <mapping resource="LinkMan.hbm.xml"/>
+        <mapping resource="Customer.hbm.xml"/>
 
     </session-factory>
 </hibernate-configuration>

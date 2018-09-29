@@ -1,6 +1,6 @@
 package net.htmlonline.domain.Replay.test;
 
-import net.htmlonline.domain.Replay.Customer;
+import net.htmlonline.domain.Replay.CustomerMe;
 import net.htmlonline.utils.HibernateUtils;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -26,7 +26,7 @@ public class CustomerDemo {
         Transaction transaction = session.beginTransaction();
 
         // 5, 编写代码
-        Customer customer = new Customer();
+        CustomerMe customer = new CustomerMe();
         customer.setAge(20);
         customer.setName("xiaoMa");
         session.save(customer);
@@ -42,16 +42,16 @@ public class CustomerDemo {
         Session session = HibernateUtils.openSession();
         Transaction transaction = session.beginTransaction();
 
-        Customer customer = new Customer();
+        CustomerMe customer = new CustomerMe();
         customer.setName("xiaoWang");
         customer.setAge(23);
         Serializable save = session.save(customer); // 保存
         log.info("save-- " + save);
 
-        Customer getCustomer = session.get(Customer.class, 8); // 根据 id查询 获取实例
+        CustomerMe getCustomer = session.get(CustomerMe.class, 8); // 根据 id查询 获取实例
         log.info(getCustomer == null ? "null" : getCustomer.toString());
 
-//        Customer loadCustomer = session.load(Customer.class, save);
+//        CustomerMe loadCustomer = session.load(CustomerMe.class, save);
 //        log.info(loadCustomer.toString());
 
         transaction.commit();
@@ -63,7 +63,7 @@ public class CustomerDemo {
         Session session = HibernateUtils.openSession();
         Transaction transaction = session.beginTransaction();
 
-        Customer customer = session.get(Customer.class, 8);
+        CustomerMe customer = session.get(CustomerMe.class, 8);
         customer.setAge(90);
 
         session.update(customer);
@@ -78,7 +78,7 @@ public class CustomerDemo {
         Session session = HibernateUtils.openSession();
         Transaction transaction = session.beginTransaction();
 
-        Customer customer = session.get(Customer.class, 2);
+        CustomerMe customer = session.get(CustomerMe.class, 2);
         System.out.println(customer);
 
         session.delete(customer);
@@ -95,7 +95,7 @@ public class CustomerDemo {
         Session session = HibernateUtils.openSession();
         Transaction transaction = session.beginTransaction();
 
-        Customer customer = new Customer();
+        CustomerMe customer = new CustomerMe();
         customer.setAge(77);
         customer.setName("xiaoXiao");
         session.saveOrUpdate(customer); // 根据 是否有id决定创建还是update
@@ -111,8 +111,8 @@ public class CustomerDemo {
         Transaction transaction = session.beginTransaction();
 
         Query query = session.createQuery("from Customer"); // hbl
-        List<Customer> list = query.list();
-        for (Customer customer : list) {
+        List<CustomerMe> list = query.list();
+        for (CustomerMe customer : list) {
             System.out.println(customer);
         }
 

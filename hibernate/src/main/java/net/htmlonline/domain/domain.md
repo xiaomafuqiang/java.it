@@ -20,7 +20,7 @@ public class Customer {
 
     @Override
     public String toString() {
-        return "Customer{" +
+        return CustomerMe +
                 "name='" + name + '\'' +
                 ", id=" + id +
                 '}';
