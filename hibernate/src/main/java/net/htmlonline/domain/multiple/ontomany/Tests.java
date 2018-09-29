@@ -35,11 +35,53 @@ public class Tests {
         customer2.getLinkMans().add(linkMan3);
 
         // 保存数据
+        // 默认都要保存
+        // 可以设置级联操作
+        // 保存一方 cascade="save-update" : 几联操作  save(一方)
         session.save(linkMan1);
         session.save(linkMan2);
         session.save(linkMan3);
         session.save(customer1);
         session.save(customer2);
+
+        transaction.commit();
+        // session.close();
+    }
+
+    @Test
+    public void run2() {
+        Session session = HibernateUtils.getCurrentSession();
+        Transaction transaction = session.beginTransaction();
+        // 编写客户
+        Customer customer = new Customer();
+        customer.setCust_name("王东");
+        //
+        LinkMan linkMan = new LinkMan();
+        linkMan.setLkm_name("风");
+
+        // 设置
+        linkMan.setCustomer(customer);
+
+        // 可以设置级联操作
+        // 保存一方 cascade="save-update" : 几联操作  save(一方)
+        // 如果两方都设置: 会产生好多条语句
+        session.save(linkMan);
+
+        transaction.commit();
+        // session.close();
+    }
+
+    @Test
+    public void run3() {
+        Session session = HibernateUtils.getCurrentSession();
+        Transaction transaction = session.beginTransaction();
+
+        // 默认删除时候 设置外键 null然后删除数据 操作
+        // 几联删除设置: 删除干净相关数据 cascade="save-update, delete"
+        Customer customer = session.get(Customer.class, 20L);
+        System.out.println(customer);
+        session.delete(customer);
+
 
         transaction.commit();
         // session.close();

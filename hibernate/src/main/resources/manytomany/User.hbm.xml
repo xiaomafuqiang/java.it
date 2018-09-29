@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!--
+    root configure...
+-->
+<hibernate-mapping>
+    <class name="net.htmlonline.domain.multiple.manytomany.User" table="sys_user">
+        <id name="user_id">
+            <generator class="native"/>
+        </id>
+        <property name="user_code"/>
+        <property name="user_name"/>
+        <property name="user_password"/>
+        <property name="user_state"/>
+
+        <!--
+            多对多配置
+            set:
+                - name 对方集合名
+                - table 多对多关系需要的中间表 名
+                key:
+                    column: 当前对象对应中间表外检名
+                many-to-many:
+                    - class 对方的类的全路径
+                    - column: 对方的对象在中间表中的外键的名称
+        -->
+        <set name="roles" table="sys_user_role">
+            <key column="user_id"></key>
+            <many-to-many class="net.htmlonline.domain.multiple.manytomany.Role" column="role_id"/>
+        </set>
+
+
+    </class>
+</hibernate-mapping>

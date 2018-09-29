@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!--
+    root configure...
+-->
+<hibernate-mapping>
+    <class name="net.htmlonline.domain.multiple.manytomany.Role" table="sys_role">
+        <id name="role_id">
+            <generator class="native"/>
+        </id>
+        <property name="role_memo"/>
+        <property name="role_name"/>
+
+        <!-- 多对多需要一方放弃外键权利 否则会重复创建相同键 造成duplicate error -->
+        <set name="users" table="sys_user_role" cascade="save-update,delete" inverse="true">
+            <!--
+                key标签：
+                    * column	：当前的对象对应中间表的外键的名称。
+             -->
+            <key column="role_id"/>
+            <!--
+                many-to-many标签：
+                    * class		：对方的类的全路径
+                    * column	：对方的对象在中间表中的外键的名称。
+             -->
+            <many-to-many class="net.htmlonline.domain.multiple.manytomany.User" column="user_id"/>
+        </set>
+
+    </class>
+</hibernate-mapping>

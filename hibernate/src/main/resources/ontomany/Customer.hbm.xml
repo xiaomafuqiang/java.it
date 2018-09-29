@@ -20,12 +20,13 @@
         <!--
             set: 配置多对一 多的方
                 - name: 多的一方属性集合名
+                - cascade="save-update" : 几联操作  save(一方)
                 key:
                     - column: 多的一样外检名称
                 on-to-many:
                     - class: 多的一方全类名
         -->
-        <set name="linkMans">
+        <set name="linkMans" cascade="save-update, delete">
             <key column="lkm_cust_id"/>
             <one-to-many class="net.htmlonline.domain.multiple.ontomany.LinkMan"/>
         </set>

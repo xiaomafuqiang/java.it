@@ -33,8 +33,15 @@
         <!--
             ###### 一对多 配置 ++++++++++++++
         -->
-        <mapping resource="LinkMan.hbm.xml"/>
-        <mapping resource="Customer.hbm.xml"/>
+        <mapping resource="ontomany/LinkMan.hbm.xml"/>
+        <mapping resource="ontomany/Customer.hbm.xml"/>
+
+        <!--
+            ###### 多对多 配置 ++++++++++++++
+        -->
+        <mapping resource="manytomany/User.hbm.xml"/>
+        <mapping resource="manytomany/Role.hbm.xml"/>
+
 
     </session-factory>
 </hibernate-configuration>
