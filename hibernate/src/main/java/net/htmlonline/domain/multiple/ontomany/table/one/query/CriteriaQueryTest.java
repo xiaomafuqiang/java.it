@@ -1,4 +1,4 @@
-package net.htmlonline.domain.multiple.ontomany.query;
+package net.htmlonline.domain.multiple.ontomany.table.one.query;
 
 import net.htmlonline.domain.multiple.ontomany.Customer;
 import net.htmlonline.domain.multiple.ontomany.LinkMan;
