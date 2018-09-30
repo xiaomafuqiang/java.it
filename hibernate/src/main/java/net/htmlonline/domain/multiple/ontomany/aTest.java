@@ -5,7 +5,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.junit.jupiter.api.Test;
 
-public class Tests {
+public class aTest {
     @Test
     public void run() {
         Session session = HibernateUtils.getCurrentSession();

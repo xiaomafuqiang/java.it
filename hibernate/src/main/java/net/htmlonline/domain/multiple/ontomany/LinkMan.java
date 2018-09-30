@@ -120,6 +120,14 @@ public class LinkMan {
     public String toString() {
         return "LinkMan{" +
                 "lkm_id=" + lkm_id +
+                ", lkm_name='" + lkm_name + '\'' +
+                ", lkm_gender='" + lkm_gender + '\'' +
+                ", lkm_phone='" + lkm_phone + '\'' +
+                ", lkm_mobile='" + lkm_mobile + '\'' +
+                ", lkm_email='" + lkm_email + '\'' +
+                ", lkm_qq='" + lkm_qq + '\'' +
+                ", lkm_position='" + lkm_position + '\'' +
+                ", lkm_memo='" + lkm_memo + '\'' +
                 '}';
     }
 }

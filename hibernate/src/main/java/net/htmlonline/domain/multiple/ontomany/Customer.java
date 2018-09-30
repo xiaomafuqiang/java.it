@@ -26,6 +26,14 @@ public class Customer {
     private String cust_phone;
     private String cust_mobile;
 
+    public Customer() {
+    }
+
+    public Customer(Long cust_id, String cust_name) {
+        this.cust_id = cust_id;
+        this.cust_name = cust_name;
+    }
+
     // 配置多的一方
     private Set<LinkMan> linkMans = new LinkedHashSet<>();
 
@@ -97,6 +105,12 @@ public class Customer {
     public String toString() {
         return "Customer{" +
                 "cust_id=" + cust_id +
+                ", cust_name='" + cust_name + '\'' +
+                ", cust_source='" + cust_source + '\'' +
+                ", cust_industry='" + cust_industry + '\'' +
+                ", cust_level='" + cust_level + '\'' +
+                ", cust_phone='" + cust_phone + '\'' +
+                ", cust_mobile='" + cust_mobile + '\'' +
                 '}';
     }
 }
