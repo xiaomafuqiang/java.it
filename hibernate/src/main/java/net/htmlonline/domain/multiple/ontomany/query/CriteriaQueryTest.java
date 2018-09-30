@@ -14,7 +14,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-public class CreteriaQueryTest {
+public class CriteriaQueryTest {
     @Test
     // 简单查询
     public void run() {
