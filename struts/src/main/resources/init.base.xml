@@ -5,6 +5,9 @@
 
 <struts>
     <package name="aName" extends="struts-default" namespace="/">
+        <!-- 2.5 版本增加安全方式 允许通配符调用配置-->
+        <global-allowed-methods>regex:.*</global-allowed-methods>
+
         <action name="hello" class="net.htmlonline.actions.BaseAction">
             <result name="success">
                 /views/default.html

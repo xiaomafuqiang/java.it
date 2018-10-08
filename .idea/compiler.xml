@@ -11,6 +11,7 @@
         <module name="playground" />
         <module name="servlet" />
         <module name="struts" />
+        <module name="strutscrm" />
         <module name="student" />
         <module name="xml" />
       </profile>
@@ -21,7 +22,9 @@
       <module name="jdbc" target="1.10" />
       <module name="playground" target="1.10" />
       <module name="servlet" target="1.10" />
+      <module name="srutscrm" target="1.10" />
       <module name="struts" target="1.10" />
+      <module name="strutscrm" target="1.10" />
       <module name="student" target="1.10" />
       <module name="xml" target="1.10" />
     </bytecodeTargetLevel>
