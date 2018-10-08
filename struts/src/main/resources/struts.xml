@@ -4,14 +4,23 @@
         "http://struts.apache.org/dtds/struts-2.5.dtd">
 
 <struts>
-<!--
-    配置Struts包, 通过包管理
--->
-    <package name="aName" extends="struts-default" namespace="/">
-        <action name="hello" class="net.htmlonline.actions.HelloActions">
-            <result name="success">
-                /views/success.html
-            </result>
-        </action>
-    </package>
+    <!--配置常量-->
+    <include file="/constant.xml"/>
+
+    <!--
+        配置Struts包, 通过包管理
+        package
+            -name="aName" 随意
+            -extends 继承关系 默认如下值
+            -namespace 定义路径访问模式 与 action.name配合使用
+
+            action
+                -name 路径匹配模式, 同上配合 url
+                -class表示一个处理的类
+                -method自定义访问的方法, 返回值定义
+                    -convert:::::
+                result
+                    -name return 返回值代表的转换值-访问的页面
+    -->
+    <include file="/init.base.xml"/>
 </struts>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+    <package name="aName" extends="struts-default" namespace="/">
+        <action name="hello" class="net.htmlonline.actions.BaseAction">
+            <result name="success">
+                /views/default.html
+            </result>
+        </action>
+
+        <!-- method 制定 -->
+        <action name="find" class="net.htmlonline.actions.BaseAction" method="find">
+            <result name="find">
+                /views/find.html
+            </result>
+        </action>
+        <action name="update" class="net.htmlonline.actions.BaseAction" method="update">
+            <result name="update">
+                /views/update.html
+            </result>
+        </action>
+        <action name="save" class="net.htmlonline.actions.BaseAction" method="save">
+            <result name="save">
+                /views/save.html
+            </result>
+        </action>
+        <action name="delete" class="net.htmlonline.actions.BaseAction" method="delete">
+            <result name="delete">
+                /views/delete.html
+            </result>
+        </action>
+
+        <!-- 2 接口实现方式 -->
+        <action name="impl" class="net.htmlonline.actions.ImplActions"/>
+        <!-- 3 继承方式 -->
+        <action name="extend" class="net.htmlonline.actions.ExtendActionSupport"/>
+
+
+        <!-- *********************8 -->
+        <!-- action 匹配 -->
+        <action name="product_*" class="net.htmlonline.actions.one.classes.Product" method="{1}"/>
+
+        <!-- 动态方法访问 -->
+        <action name="customer" class="net.htmlonline.actions.one.classes.Customer"/>
+
+    </package>
+</struts>
