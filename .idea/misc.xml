@@ -12,6 +12,7 @@
         <option value="$PROJECT_DIR$/student/pom.xml" />
         <option value="$PROJECT_DIR$/playground/pom.xml" />
         <option value="$PROJECT_DIR$/hibernate/pom.xml" />
+        <option value="$PROJECT_DIR$/struts/pom.xml" />
       </list>
     </option>
   </component>
