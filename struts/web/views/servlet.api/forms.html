@@ -10,6 +10,7 @@
     </style>
 </head>
 <body>
+<h2>测试servlet api</h2>
 <form action="/requests_execute.action" method="post" class="form">
     <input type="text" name="name">
     <input type="text" name="password">
@@ -36,8 +37,26 @@
 <hr>
 <hr>
 
+<h2>数据封装方式①</h2>
+<form action="/user1.action" method="post" class="form">
+    <input type="text" name="name">
+    <input type="text" name="age">
+    <button>提交</button>
+</form>
+<hr>
+<hr>
 
-<form action="/user.action" method="post" class="form">
+<h2>数据封装方式①</h2>
+<form action="/user2.action" method="post" class="form">
+    <input type="text" name="user.name">
+    <input type="text" name="user.age">
+    <button>提交</button>
+</form>
+<hr>
+<hr>
+
+<h2>数据封装方式③</h2>
+<form action="/user3.action" method="post" class="form">
     <input type="text" name="name">
     <input type="text" name="age">
     <button>提交</button>

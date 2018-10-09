@@ -1,9 +1,12 @@
-package net.htmlonline.actions;
+package net.htmlonline.actions.data.encapsulation;
 
 import com.opensymphony.xwork2.ActionSupport;
 
 // 数据封装
-public class UserActionPrepared extends ActionSupport {
+public class UserActionPrepared1 extends ActionSupport {
+    // 私有字段在表单 name
+    // 提供getter setter
+    // 直接可以获取封装后值
     private String name;
     private int age;
 
