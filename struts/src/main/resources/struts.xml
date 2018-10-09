@@ -23,4 +23,7 @@
                     -name return 返回值代表的转换值-访问的页面
     -->
     <include file="/init.base.xml"/>
+    <include file="/form.xml"/>
+    <!-- 数据封装 -->
+    <include file="/user.xml"/>
 </struts>

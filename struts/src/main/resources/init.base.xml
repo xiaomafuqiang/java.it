@@ -42,11 +42,13 @@
         <action name="extend" class="net.htmlonline.actions.ExtendActionSupport"/>
 
 
-        <!-- *********************8 -->
+        <!-- ********************* -->
         <!-- action 匹配 -->
+        <!-- url: product_find 将会调用class find 方法-->
         <action name="product_*" class="net.htmlonline.actions.one.classes.Product" method="{1}"/>
 
         <!-- 动态方法访问 -->
+        <!-- url:  customer!find 将会调用class find 方法-->
         <action name="customer" class="net.htmlonline.actions.one.classes.Customer"/>
 
     </package>

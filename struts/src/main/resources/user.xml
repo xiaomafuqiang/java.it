@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+    <package name="userName" extends="struts-default" namespace="/">
+
+        <!-- ********************* -->
+        <!-- action 匹配 -->
+        <!-- url: product_find 将会调用class find 方法-->
+        <action name="user" class="net.htmlonline.actions.UserActionPrepared"/>
+
+    </package>
+</struts>
