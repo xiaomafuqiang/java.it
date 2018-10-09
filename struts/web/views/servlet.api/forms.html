@@ -61,5 +61,29 @@
     <input type="text" name="age">
     <button>提交</button>
 </form>
+
+
+<hr>
+<hr>
+
+<h2>list数据封装</h2>
+<form action="/userList.action" method="post" class="form">
+    <input type="text" name="users[0].name">姓名 <br>
+    <input type="text" name="user[0].age">年龄 <br>
+    <input type="text" name="users[1].name">姓名 <br>
+    <input type="text" name="user[1].age">年龄 <br>
+    <button>提交</button>
+</form>
+<hr>
+<hr>
+
+<h2>list数据封装</h2>
+<form action="/userMap.action" method="post" class="form">
+    <input type="text" name="users['one'].name">姓名 <br>
+    <input type="text" name="user['one'].age">年龄 <br>
+    <input type="text" name="users['two'].name">姓名 <br>
+    <input type="text" name="user['two'].age">年龄 <br>
+    <button>提交</button>
+</form>
 </body>
 </html>

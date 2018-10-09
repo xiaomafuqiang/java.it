@@ -14,5 +14,10 @@
         <!-- 数据封装 ③ -->
         <action name="user3" class="net.htmlonline.actions.data.encapsulation.UserActionPrepared3"/>
 
+        <!-- 复杂数据封装 -->
+        <!-- 数据封装 -->
+        <action name="userList" class="net.htmlonline.actions.data.encapsulation.UserActionPreparedList"/>
+        <action name="userMap" class="net.htmlonline.actions.data.encapsulation.UserActionPreparedMap"/>
+
     </package>
 </struts>
