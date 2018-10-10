@@ -14,6 +14,7 @@
         <option value="$PROJECT_DIR$/hibernate/pom.xml" />
         <option value="$PROJECT_DIR$/struts/pom.xml" />
         <option value="$PROJECT_DIR$/strutscrm/pom.xml" />
+        <option value="$PROJECT_DIR$/spring/pom.xml" />
       </list>
     </option>
   </component>
