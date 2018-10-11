@@ -3,6 +3,15 @@ package net.htmlonline;
 public class UserServiceImpl implements UserService {
     private String name;
 
+    public void initMethod() {
+        System.out.println("init method invoked...");
+    }
+
+
+    public void destroyed() {
+        System.out.println("destroyed method invoked...");
+    }
+
     public void setName(String name) {
         this.name = name;
     }
