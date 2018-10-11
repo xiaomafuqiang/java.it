@@ -11,6 +11,7 @@
         <module name="playground" />
         <module name="servlet" />
         <module name="spring" />
+        <module name="springIOC" />
         <module name="struts" />
         <module name="strutscrm" />
         <module name="student" />
@@ -24,6 +25,7 @@
       <module name="playground" target="1.10" />
       <module name="servlet" target="1.10" />
       <module name="spring" target="1.10" />
+      <module name="springIOC" target="1.10" />
       <module name="srutscrm" target="1.10" />
       <module name="struts" target="1.10" />
       <module name="strutscrm" target="1.10" />
