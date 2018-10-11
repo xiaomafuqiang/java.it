@@ -3,6 +3,7 @@ package net.htmlonline.run;
 import net.htmlonline.components.UserServiceImpl;
 import net.htmlonline.xml.config.Company;
 import org.junit.jupiter.api.Test;
+import org.springframework.cglib.proxy.Enhancer;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -22,4 +23,6 @@ public class Tests {
         Company company = context.getBean("company", Company.class);
         System.out.println(company);
     }
+
+
 }

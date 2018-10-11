@@ -55,7 +55,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void save() {
-        System.out.println("UserServiceImpl saved");
+        System.out.println("CgDomain saved");
         userDao.save();
     }
 
