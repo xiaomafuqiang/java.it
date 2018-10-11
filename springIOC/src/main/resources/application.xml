@@ -4,6 +4,14 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
     http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
-    <context:component-scan base-package="net.htmlonline.components" />
+
+    <!-- net.htmlonline.components tests -->
+    <!--context:component-scan 类级别注解 -->
+    <!--<context:component-scan base-package="net.htmlonline.components" />-->
+
+    <!-- net.htmlonline.xml.config.Company tests -->
+    <!-- annotation config 开启属性注入注解, 苟泽可能不生效 -->
+    <context:annotation-config />
+    <bean id="company" class="net.htmlonline.xml.config.Company"/>
 
 </beans>
