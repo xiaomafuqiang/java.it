@@ -7,11 +7,14 @@
 
     <!-- net.htmlonline.components tests -->
     <!--context:component-scan 类级别注解 -->
-    <!--<context:component-scan base-package="net.htmlonline.components" />-->
+    <context:component-scan base-package="net.htmlonline.components" />
 
     <!-- net.htmlonline.xml.config.Company tests -->
     <!-- annotation config 开启属性注入注解, 苟泽可能不生效 -->
     <context:annotation-config />
     <bean id="company" class="net.htmlonline.xml.config.Company"/>
+
+    <!-- aop -->
+    <context:component-scan base-package="net.htmlonline.aop"/>
 
 </beans>

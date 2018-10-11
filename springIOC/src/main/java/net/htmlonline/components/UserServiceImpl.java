@@ -14,7 +14,6 @@ import javax.annotation.Resource;
 
 @Service("user")
 //@Component("user")
-@Scope
 public class UserServiceImpl implements UserService {
     // @Value("中国人")
     private String name;
