@@ -1,4 +1,4 @@
-package net.htmlonline.run;
+package net.htmlonline.components;
 
 import net.htmlonline.components.UserServiceImpl;
 import net.htmlonline.xml.config.Company;

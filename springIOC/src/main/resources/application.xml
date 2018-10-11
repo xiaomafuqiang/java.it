@@ -2,8 +2,9 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
     <!-- net.htmlonline.components tests -->
     <!--context:component-scan 类级别注解 -->
@@ -15,6 +16,17 @@
     <bean id="company" class="net.htmlonline.xml.config.Company"/>
 
     <!-- aop -->
-    <context:component-scan base-package="net.htmlonline.aop"/>
+    <bean id="productDaoImpl" class="net.htmlonline.aop.ProductDaoImpl"/>
+    <bean id="myAspect" class="net.htmlonline.aop.MyAspectXml"/>
+    <!-- 默认jdk 方式代理 -->
+    <!-- 开启cglib -->
+    <aop:aspectj-autoproxy proxy-target-class="true"/>
+    <aop:config>
+        <aop:pointcut id="pointCut1" expression="execution(* net.htmlonline.aop.ProductDao.save(..))" />
+        <aop:aspect ref="myAspect">
+            <aop:before method="check" pointcut-ref="pointCut1" />
+        </aop:aspect>
+    </aop:config>
+
 
 </beans>
