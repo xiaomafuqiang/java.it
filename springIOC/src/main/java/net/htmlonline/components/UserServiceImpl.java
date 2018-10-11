@@ -1,12 +1,47 @@
 package net.htmlonline.components;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component("user")
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+import javax.annotation.Resource;
+
+@Service("user")
+//@Component("user")
+@Scope
 public class UserServiceImpl implements UserService {
     // @Value("中国人")
     private String name;
+
+    // @Autowired
+    // @Qualifier(value = "userDao")
+    @Resource(name = "userDao")
+    private UserDaoImpl userDao;
+
+    @PostConstruct
+    public void init() {
+        System.out.println("userService init...");
+    }
+    @PreDestroy
+    public void destroy() {
+        System.out.println("userService destroy...");
+    }
+
+
+
+    public UserDaoImpl getUserDao() {
+        return userDao;
+    }
+
+    public void setUserDao(UserDaoImpl userDao) {
+        this.userDao = userDao;
+    }
 
     public String getName() {
         return name;
@@ -20,7 +55,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void save() {
-        System.out.println("saved");
+        System.out.println("UserServiceImpl saved");
+        userDao.save();
     }
 
 
