@@ -22,9 +22,23 @@
     <!-- 开启cglib -->
     <aop:aspectj-autoproxy proxy-target-class="true"/>
     <aop:config>
+        <!-- 定义一系列要拦截切点 在aspect使用 -->
         <aop:pointcut id="pointCut1" expression="execution(* net.htmlonline.aop.ProductDao.save(..))" />
+        <aop:pointcut id="pointCut2" expression="execution(* net.htmlonline.aop.ProductDao.delete(..))" />
+        <aop:pointcut id="pointCut3" expression="execution(* net.htmlonline.aop.ProductDao.update(..))" />
+        <aop:pointcut id="pointCut4" expression="execution(* net.htmlonline.aop.ProductDao.find(..))" />
+
         <aop:aspect ref="myAspect">
-            <aop:before method="check" pointcut-ref="pointCut1" />
+            <!-- 前置通知 -->
+            <aop:before method="before" pointcut-ref="pointCut1"/>
+            <!-- 后置通知 -->
+            <aop:after-returning method="afterReturning" pointcut-ref="pointCut2" returning="result"/>
+            <!-- 环绕通知 -->
+            <aop:around method="around" pointcut-ref="pointCut3"/>
+            <!-- 异常抛出通知 -->
+            <aop:after-throwing method="afterThrowing" pointcut-ref="pointCut4" throwing="throwable"/>
+            <!-- 最终通知, 无论有无异常出现 -->
+            <aop:after method="after" pointcut-ref="pointCut4"/>
         </aop:aspect>
     </aop:config>
 

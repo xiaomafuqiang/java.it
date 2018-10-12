@@ -3,9 +3,11 @@ package net.htmlonline.aop;
 public interface ProductDao {
     void save();
 
-    void update();
+    String update();
 
-    void delete();
+    String delete();
+
+    void find();
 
     void add();
 }

@@ -15,5 +15,7 @@ public class Runs {
         productDao.save();
         productDao.delete();
         productDao.update();
+        productDao.find();
     }
+
 }
