@@ -16,17 +16,17 @@
     <bean id="company" class="net.htmlonline.xml.config.Company"/>
 
     <!-- aop -->
-    <bean id="productDaoImpl" class="net.htmlonline.aop.ProductDaoImpl"/>
-    <bean id="myAspect" class="net.htmlonline.aop.MyAspectXml"/>
+    <bean id="productDaoImpl" class="net.htmlonline.aop.xml.ProductDaoImpl"/>
+    <bean id="myAspect" class="net.htmlonline.aop.xml.MyAspectXml"/>
     <!-- 默认jdk 方式代理 -->
-    <!-- 开启cglib -->
+    <!-- 开启cglib, 也是开启注解 -->
     <aop:aspectj-autoproxy proxy-target-class="true"/>
     <aop:config>
         <!-- 定义一系列要拦截切点 在aspect使用 -->
-        <aop:pointcut id="pointCut1" expression="execution(* net.htmlonline.aop.ProductDao.save(..))" />
-        <aop:pointcut id="pointCut2" expression="execution(* net.htmlonline.aop.ProductDao.delete(..))" />
-        <aop:pointcut id="pointCut3" expression="execution(* net.htmlonline.aop.ProductDao.update(..))" />
-        <aop:pointcut id="pointCut4" expression="execution(* net.htmlonline.aop.ProductDao.find(..))" />
+        <aop:pointcut id="pointCut1" expression="execution(* net.htmlonline.aop.xml.ProductDao.save(..))" />
+        <aop:pointcut id="pointCut2" expression="execution(* net.htmlonline.aop.xml.ProductDao.delete(..))" />
+        <aop:pointcut id="pointCut3" expression="execution(* net.htmlonline.aop.xml.ProductDao.update(..))" />
+        <aop:pointcut id="pointCut4" expression="execution(* net.htmlonline.aop.xml.ProductDao.find(..))" />
 
         <aop:aspect ref="myAspect">
             <!-- 前置通知 -->
@@ -41,6 +41,14 @@
             <aop:after method="after" pointcut-ref="pointCut4"/>
         </aop:aspect>
     </aop:config>
+
+
+    <!-- aop 注解方式 -->
+    <!-- 开启 -->
+    <!--<aop:aspectj-autoproxy/>-->
+    <bean id="orderDaoImpl" class="net.htmlonline.aop.annotation.OrderDaoImpl"/>
+    <bean id="myAspectAnnotation" class="net.htmlonline.aop.annotation.MyAspectAnnotation"/>
+
 
 
 </beans>

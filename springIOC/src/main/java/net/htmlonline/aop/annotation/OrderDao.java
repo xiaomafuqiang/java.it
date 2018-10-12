@@ -1,6 +1,6 @@
-package net.htmlonline.aop;
+package net.htmlonline.aop.annotation;
 
-public interface ProductDao {
+public interface OrderDao {
     void save();
 
     String update();

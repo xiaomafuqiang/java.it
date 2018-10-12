@@ -1,9 +1,6 @@
-package net.htmlonline.aop;
+package net.htmlonline.aop.annotation;
 
-import org.springframework.stereotype.Component;
-
-@Component("productDao")
-public class ProductDaoImpl implements ProductDao {
+public class OrderDaoImpl implements OrderDao {
     @Override
     public void save() {
         System.out.println("saved...");
