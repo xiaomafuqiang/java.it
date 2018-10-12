@@ -5,7 +5,7 @@
       http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <!-- init -->
-    <bean name="userservice" class="net.htmlonline.UserServiceImpl" scope="prototype" init-method="initMethod" destroy-method="destroyed">
+    <bean name="userservice" class="net.htmlonline.domain.UserServiceImpl" scope="prototype" init-method="initMethod" destroy-method="destroyed">
         <property name="name" value="小马"/>
     </bean>
 
@@ -36,5 +36,8 @@
         <property name="name" value="pppp"/>
         <property name="car" value="#{car3}"/>
     </bean>
+
+    <!-- jdbc template -->
+    <import resource="jdbc.xml"/>
 
 </beans>

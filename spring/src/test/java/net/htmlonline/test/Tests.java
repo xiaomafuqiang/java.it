@@ -1,6 +1,6 @@
 package net.htmlonline.test;
 
-import net.htmlonline.UserServiceImpl;
+import net.htmlonline.domain.UserServiceImpl;
 import net.htmlonline.di.Car;
 import net.htmlonline.di.Employee;
 import org.junit.jupiter.api.Test;

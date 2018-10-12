@@ -1,4 +1,4 @@
-package net.htmlonline;
+package net.htmlonline.domain;
 
 public class UserServiceImpl implements UserService {
     private String name;
