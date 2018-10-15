@@ -1,9 +1,21 @@
 package net.htmlonline.jdbc.transaction.service;
 
 import net.htmlonline.jdbc.transaction.dao.AccountDao;
+import org.springframework.transaction.TransactionStatus;
+import org.springframework.transaction.support.TransactionCallbackWithoutResult;
+import org.springframework.transaction.support.TransactionTemplate;
 
 public class AccountServiceImpl implements AccountService {
     private AccountDao accountDao;
+    private TransactionTemplate transactionTemplate; // 3 注入事物管理模板
+
+    public TransactionTemplate getTransactionTemplate() {
+        return transactionTemplate;
+    }
+
+    public void setTransactionTemplate(TransactionTemplate transactionTemplate) {
+        this.transactionTemplate = transactionTemplate;
+    }
 
     public AccountDao getAccountDao() {
         return accountDao;
@@ -17,8 +29,16 @@ public class AccountServiceImpl implements AccountService {
     // from 转出账号
     // to 转入账号
     // money 转账金额
-    public void transfer(String from, String to, Double money) {
-        accountDao.outMoney(from, money);
-        accountDao.inMoney(to, money);
+    public void transfer(final String from, final String to, final Double money) {
+        // 事物
+        transactionTemplate.execute(new TransactionCallbackWithoutResult() {
+            @Override
+            protected void doInTransactionWithoutResult(TransactionStatus transactionStatus) {
+                accountDao.outMoney(from, money);
+                accountDao.inMoney(to, money);
+            }
+        });
+
+
     }
 }
