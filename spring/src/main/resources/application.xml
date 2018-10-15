@@ -39,5 +39,8 @@
 
     <!-- jdbc template -->
     <import resource="jdbc.xml"/>
+    <!-- tx -->
+    <import resource="tx.xml"/>
+
 
 </beans>
