@@ -1,6 +1,6 @@
-package net.htmlonline.jdbc.transaction.service;
+package net.htmlonline.jdbc.transaction.code.service;
 
-import net.htmlonline.jdbc.transaction.dao.AccountDao;
+import net.htmlonline.jdbc.transaction.code.dao.AccountDao;
 import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.support.TransactionCallbackWithoutResult;
 import org.springframework.transaction.support.TransactionTemplate;
@@ -35,6 +35,7 @@ public class AccountServiceImpl implements AccountService {
             @Override
             protected void doInTransactionWithoutResult(TransactionStatus transactionStatus) {
                 accountDao.outMoney(from, money);
+                // int i = 1 / 0;
                 accountDao.inMoney(to, money);
             }
         });

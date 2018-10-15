@@ -5,15 +5,15 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
       http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <bean id="accountDao" class="net.htmlonline.jdbc.transaction.dao.AccountDaoImpl">
+    <bean id="accountDao" class="net.htmlonline.jdbc.transaction.code.dao.AccountDaoImpl">
         <property name="jdbcTemplate" ref="jdbcTemplate"/>
     </bean>
-    <bean id="accountService" class="net.htmlonline.jdbc.transaction.service.AccountServiceImpl">
+    <bean id="accountService" class="net.htmlonline.jdbc.transaction.code.service.AccountServiceImpl">
         <property name="accountDao" ref="accountDao"/>
         <property name="transactionTemplate" ref="transactionTemplate"/>
     </bean>
 
-    <!-- 配置事物 -->
+    <!-- 编程式 ++++ 配置事物 -->
     <!-- 1 配置事物管理器 -->
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <!-- c3p0 -->
@@ -25,6 +25,8 @@
     </bean>
     <!-- 3 注入事物管理模板 -->
     <!--   service:  private TransactionTemplate transactionTemplate; // 3 注入事物管理模板 -->
+
+
 
 
 

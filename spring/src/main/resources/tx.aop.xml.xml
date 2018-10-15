@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+      http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <bean id="accountDao2" class="net.htmlonline.jdbc.transaction.aop.xml.dao.AccountDaoImpl">
+        <property name="jdbcTemplate" ref="jdbcTemplate"/>
+    </bean>
+    <bean id="accountService2" class="net.htmlonline.jdbc.transaction.aop.xml.service.AccountServiceImpl">
+        <property name="accountDao" ref="accountDao2"/>
+    </bean>
+
+    <!-- 声明式 xml模式 ++++ 配置事物 -->
+    <!-- 1 配置事物管理器 -->
+    <bean id="transactionManager2" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <!-- c3p0 -->
+        <property name="dataSource" ref="comboPooledDataSource"/>
+    </bean>
+    <!-- 2 配置事物管理 -->
+    <tx:advice id="txAdvice" transaction-manager="transactionManager2">
+        <tx:attributes>
+            <!-- 事物规则 -->
+            <tx:method name="transfer" propagation="REQUIRED"/>
+            <!--<tx:method name="*" propagation="REQUIRED"/>-->
+            <!--<tx:method name="find" read-only="true"/>-->
+        </tx:attributes>
+    </tx:advice>
+    <!-- 3 aop 配置 -->
+    <!-- 默认jdk 方式代理 -->
+    <!-- 开启cglib, 也是开启注解 -->
+    <aop:aspectj-autoproxy proxy-target-class="true"/>
+    <aop:config>
+        <aop:pointcut id="pointCut1" expression="execution(* net.htmlonline.jdbc.transaction.aop.xml.service.AccountServiceImpl.*(..))" />
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="pointCut1"/>
+    </aop:config>
+
+</beans>

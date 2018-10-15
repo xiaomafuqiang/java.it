@@ -1,4 +1,4 @@
-package net.htmlonline.jdbc.transaction.service;
+package net.htmlonline.jdbc.transaction.code.service;
 
 public interface AccountService {
 

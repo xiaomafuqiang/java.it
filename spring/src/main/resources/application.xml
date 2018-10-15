@@ -39,8 +39,12 @@
 
     <!-- jdbc template -->
     <import resource="jdbc.xml"/>
-    <!-- tx -->
-    <import resource="tx.xml"/>
+    <!-- tx 编程式事物管理 -->
+    <import resource="tx.code.xml"/>
+    <!-- 声明式 aop xml 事物管理 -->
+    <import resource="tx.aop.xml.xml"/>
+    <!-- 声明式 aop config 事物管理 -->
+    <import resource="tx.aop.config.xml"/>
 
 
 </beans>

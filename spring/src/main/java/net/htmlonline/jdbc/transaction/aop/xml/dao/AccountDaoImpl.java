@@ -1,6 +1,5 @@
-package net.htmlonline.jdbc.transaction.dao;
+package net.htmlonline.jdbc.transaction.aop.xml.dao;
 
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
 
 public class AccountDaoImpl extends JdbcDaoSupport implements AccountDao {

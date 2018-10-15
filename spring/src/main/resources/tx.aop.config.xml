@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+      http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <bean id="accountDao3" class="net.htmlonline.jdbc.transaction.aop.config.dao.AccountDaoImpl">
+        <property name="jdbcTemplate" ref="jdbcTemplate"/>
+    </bean>
+    <bean id="accountService3" class="net.htmlonline.jdbc.transaction.aop.config.service.AccountServiceImpl">
+        <property name="accountDao" ref="accountDao3"/>
+    </bean>
+
+    <!-- 声明式注解模式++++ 配置事物 -->
+    <!-- 1 配置事物管理器 -->
+    <bean id="transactionManager3" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <!-- c3p0 -->
+        <property name="dataSource" ref="comboPooledDataSource"/>
+    </bean>
+    <!-- 开启注解事物 -->
+    <tx:annotation-driven transaction-manager="transactionManager3"/>
+    <!-- @Transactional 注解到 service -->
+</beans>
