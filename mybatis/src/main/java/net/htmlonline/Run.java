@@ -15,14 +15,13 @@ public class Run {
     String resource = "mybatis-config.xml";
     InputStream inputStream = Resources.getResourceAsStream(resource);
     SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
-    SqlSession sqlSession = sqlSessionFactory.openSession();
 
     public Run() throws IOException {
     }
 
     @Test
     public void runSelect() throws IOException {
-
+        SqlSession sqlSession = sqlSessionFactory.openSession();
 
         List<Account> selectAccount = sqlSession.selectList("account.selectAccountList", "m");
         System.out.println(selectAccount);
@@ -32,6 +31,7 @@ public class Run {
 
     @Test
     public void runInsert() throws IOException {
+        SqlSession sqlSession = sqlSessionFactory.openSession();
 
         Account account = new Account("shen", 9000D);
 
@@ -44,6 +44,7 @@ public class Run {
 
     @Test
     public void runUpdate() throws IOException {
+        SqlSession sqlSession = sqlSessionFactory.openSession();
 
         Account account = new Account("shenxw", 9000D);
         account.setId(20);
@@ -55,7 +56,7 @@ public class Run {
     }
     @Test
     public void runDelete() throws IOException {
-
+        SqlSession sqlSession = sqlSessionFactory.openSession();
 
         int affectedCount = sqlSession.delete("account.deleteAccount", 18);
 
