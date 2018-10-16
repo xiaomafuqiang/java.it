@@ -8,6 +8,10 @@
         select * from account where id=#{id}
     </select>
 
+    <select id="selectAccountProxyList" parameterType="net.htmlonline.domain.AccountProxy" resultType="net.htmlonline.domain.Account">
+        select * from account where name like '%${proxy.account.name}%'
+    </select>
+
     <select id="selectList" resultType="net.htmlonline.domain.Account">
         select * from account
     </select>

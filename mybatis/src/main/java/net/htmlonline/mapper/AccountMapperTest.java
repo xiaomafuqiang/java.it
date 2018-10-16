@@ -1,6 +1,7 @@
 package net.htmlonline.mapper;
 
 import net.htmlonline.domain.Account;
+import net.htmlonline.domain.AccountProxy;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.junit.jupiter.api.Test;
@@ -20,6 +21,22 @@ public class AccountMapperTest {
         System.out.println(account);
 
         List<Account> accounts = mapper.selectList();
+        System.out.println(accounts);
+
+        sqlSession.commit();
+    }
+
+    @Test
+    public void runProxy() {
+        SqlSessionFactory sessionFactory = getSessionFactory();
+        SqlSession sqlSession = sessionFactory.openSession();
+        AccountMapper mapper = sqlSession.getMapper(AccountMapper.class);
+
+        AccountProxy accountProxy = new AccountProxy();
+        Account account = new Account("x", 1700D);
+        accountProxy.setAccount(account);
+
+        List<Account> accounts = mapper.selectAccountProxyList(accountProxy);
         System.out.println(accounts);
 
         sqlSession.commit();
