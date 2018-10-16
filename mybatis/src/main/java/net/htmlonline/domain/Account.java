@@ -5,6 +5,9 @@ public class Account {
     private String name;
     private Double money;
 
+    public Account() {
+    }
+
     public Account(String name, Double money) {
         this.name = name;
         this.money = money;
