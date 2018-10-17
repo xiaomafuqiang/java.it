@@ -13,7 +13,7 @@
     -->
     <settings>
         <!-- 转换下划线方式 to 驼峰-->
-        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <!--<setting name="mapUnderscoreToCamelCase" value="true"/>-->
         <!--
             定义日志方式
             value值可以是SLF4J、Apache Commons Logging、Log4J2、Log4J、JDK logging

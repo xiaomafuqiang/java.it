@@ -4,7 +4,20 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="net.htmlonline.mapper.OrderMapper">
 
-    <select id="selectOrder" resultType="net.htmlonline.domain.Order">
+    <!-- 定义 result mappings 手动映射 -->
+    <!--
+        resultMap:
+            -id定义结果映射id
+            -type class类型
+            result：
+                -column 表中名
+                -property 类中属性名
+                -javaType="" jdbcType="" typeHandler=""
+    -->
+    <resultMap id="orders" type="net.htmlonline.domain.Order">
+        <result column="o_id" property="OId" />
+    </resultMap>
+    <select id="selectOrder" resultType="net.htmlonline.domain.Order" resultMap="orders">
         select * from orderm
     </select>
 
