@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.htmlonline.mapper.OrderMOne2OneMapper">
+
+    <!-- 定义 result mappings 手动映射 -->
+    <!--
+        resultMap:
+            -id定义结果映射id
+            -type class类型
+            result：
+                -column 表中名
+                -property 类中属性名
+                -javaType="" jdbcType="" typeHandler=""
+    -->
+    <resultMap id="orders" type="net.htmlonline.domain.onetoone.Orderm">
+        <id column="o_id" property="OId" />
+        <result column="name" property="name"/>
+        <result column="dates" property="dates"/>
+        <result column="money" property="money"/>
+        <association property="userm" javaType="net.htmlonline.domain.onetoone.Userm">
+            <id column="uid" property="uid"/>
+            <result column="name" property="name"/>
+            <result column="age" property="age"/>
+        </association>
+    </resultMap>
+    <select id="selectOrder" resultType="net.htmlonline.domain.onetoone.Orderm" resultMap="orders">
+        select *
+        from orderm o
+            left join userm u on o.uid = u.uid;
+    </select>
+
+
+
+</mapper>
