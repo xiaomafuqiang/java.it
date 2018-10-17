@@ -15,7 +15,7 @@
                 -javaType="" jdbcType="" typeHandler=""
     -->
     <resultMap id="orders" type="net.htmlonline.domain.Order">
-        <result column="o_id" property="OId" />
+        <result column="o_id" property="oid" />
     </resultMap>
     <select id="selectOrder" resultType="net.htmlonline.domain.Order" resultMap="orders">
         select * from orderm

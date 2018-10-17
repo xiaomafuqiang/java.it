@@ -15,7 +15,7 @@
                 -javaType="" jdbcType="" typeHandler=""
     -->
     <resultMap id="orders" type="net.htmlonline.domain.onetoone.Orderm">
-        <id column="o_id" property="OId" />
+        <id column="o_id" property="oid" />
         <result column="name" property="name"/>
         <result column="dates" property="dates"/>
         <result column="money" property="money"/>

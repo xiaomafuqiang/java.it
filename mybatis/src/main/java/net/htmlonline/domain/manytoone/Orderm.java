@@ -3,7 +3,7 @@ package net.htmlonline.domain.manytoone;
 import java.util.Date;
 
 public class Orderm {
-    private int OId;
+    private int oid;
     private String name;
     private Date dates;
     private Double money;
@@ -11,19 +11,19 @@ public class Orderm {
     @Override
     public String toString() {
         return "Orderm{" +
-                "OId=" + OId +
+                "oid=" + oid +
                 ", name='" + name + '\'' +
                 ", dates=" + dates +
                 ", money=" + money +
                 '}';
     }
 
-    public int getOId() {
-        return OId;
+    public int getOid() {
+        return oid;
     }
 
-    public void setOId(int OId) {
-        this.OId = OId;
+    public void setOid(int oid) {
+        this.oid = oid;
     }
 
     public String getName() {
