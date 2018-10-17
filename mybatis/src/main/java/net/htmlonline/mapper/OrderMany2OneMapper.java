@@ -1,9 +1,9 @@
 package net.htmlonline.mapper;
 
-import net.htmlonline.domain.onetoone.Orderm;
+import net.htmlonline.domain.manytoone.Orderm;
 
 import java.util.List;
 
-public interface OrderMOne2OneMapper {
+public interface OrderMany2OneMapper {
     List<Orderm> selectOrder();
 }
