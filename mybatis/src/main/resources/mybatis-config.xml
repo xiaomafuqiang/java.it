@@ -47,5 +47,6 @@
     <mappers>
         <mapper resource="interface-xml-mapper.xml"/>
         <mapper resource="interface-account-mapper.xml"/>
+        <mapper resource="interface-order-mapper.xml"/>
     </mappers>
 </configuration>
