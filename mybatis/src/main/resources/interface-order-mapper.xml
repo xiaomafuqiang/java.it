@@ -21,5 +21,72 @@
         select * from orderm
     </select>
 
+    <!-- 动态sql 实例 -->
+    <!--
+    多个if
+        在条件前 and
+        and name=#{order.name}
+
+    -->
+    <sql id="selector">
+        select * from orderm
+    </sql>
+    <select id="selectOrderByNameAndMoney1" resultType="net.htmlonline.domain.Order" resultMap="orders">
+        <include refid="selector"/>
+        <where>
+
+            <if test="money!=null and money!=''">
+                and money=#{money}
+            </if>
+            <if test="name!=null and name!=''">
+                and name=#{name}
+            </if>
+        </where>
+    </select>
+    <select id="selectOrderByNameAndMoney2" resultType="net.htmlonline.domain.Order" resultMap="orders">
+        <include refid="selector"/>
+         where name=#{order.name} and money=#{order.money}
+    </select>
+    <select id="selectOrderByNameAndMoney3" resultType="net.htmlonline.domain.Order" resultMap="orders">
+        <include refid="selector"/>
+        <where>
+
+            <if test="order.money!=null and order.money!=''">
+                money=#{order.money}
+            </if>
+            <if test="order.name!=null and order.name!=''">
+                and name=#{order.name}
+            </if>
+        </where>
+    </select>
+
+    <select id="selectOrderByNameAndMoney4" resultType="net.htmlonline.domain.OrderProxy" resultMap="orders">
+        <include refid="selector"/>
+        <where>
+            o_id in
+            <foreach collection="orderProxy.list" item="oid" open=" (" close=")" separator=",">
+                #{oid}
+            </foreach>
+        </where>
+    </select>
+    <select id="selectOrderByNameAndMoney5" resultMap="orders">
+        <include refid="selector"/>
+        <where>
+            o_id in
+            <foreach collection="lists" item="oid" open=" (" close=")" separator=",">
+                #{oid}
+            </foreach>
+        </where>
+    </select>
+    <select id="selectOrderByNameAndMoney6" resultMap="orders">
+        <include refid="selector"/>
+        <where>
+            o_id in
+            <foreach collection="ints" item="oid" open=" (" close=")" separator=",">
+                #{oid}
+            </foreach>
+        </where>
+    </select>
+
 
 </mapper>
