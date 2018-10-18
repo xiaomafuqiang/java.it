@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--
+      1, 外部引入配置文件 properties
+    -->
+    <properties resource="mybatis-conf.properties" />
+
+    <!--
+      2, settings 重要的配置 行为
+    -->
+    <settings>
+        <!-- 转换下划线方式 to 驼峰-->
+        <!--<setting name="mapUnderscoreToCamelCase" value="true"/>-->
+        <!--
+            定义日志方式
+            value值可以是SLF4J、Apache Commons Logging、Log4J2、Log4J、JDK logging
+        -->
+        <setting name="logImpl" value="LOG4J"/>
+    </settings>
+
+    <!--
+       3, 别名 不区分大小写， 在mapper里 returnType使用
+   -->
+    <typeAliases>
+        <!-- 默认别名: 类名小写 alias属性制定命名 -->
+        <!--<typeAlias type="net.htmlonline.dao.Employee"/>-->
+        <!--<typeAlias type="net.htmlonline.dao.Employee" alias="emp"/>-->
+        <!-- 扫描包/子包 自动命名， 如果有冲突， 可以用注解@Alias(name) 区分 -->
+        <!--<package name="net.htmlonline.dao"/>-->
+    </typeAliases>
+
+
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${jdbc.Driver}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+
+    </mappers>
+</configuration>
