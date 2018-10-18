@@ -22,13 +22,13 @@
 
         <collection property="list" ofType="net.htmlonline.domain.manytoone.Orderm">
             <id column="o_id" property="oid" />
-            <result column="name" property="name"/>
+            <result column="names" property="name"/>
             <result column="dates" property="dates"/>
             <result column="money" property="money"/>
         </collection>
     </resultMap>
     <select id="selectOrder" resultType="net.htmlonline.domain.manytoone.Userm" resultMap="orders">
-        select *
+        select o.uid, o.name, o.age, u.o_id, u.name as names, u.dates, u.money
         from userm o
             left join orderm u on o.uid = u.uid;
     </select>

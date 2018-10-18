@@ -9,6 +9,7 @@
         <module name="hibernate" />
         <module name="jdbc" />
         <module name="mybatis" />
+        <module name="mybatisSpring" />
         <module name="playground" />
         <module name="servlet" />
         <module name="spring" />
@@ -24,6 +25,7 @@
       <module name="hibernate" target="1.10" />
       <module name="jdbc" target="1.10" />
       <module name="mybatis" target="1.10" />
+      <module name="mybatisSpring" target="1.10" />
       <module name="playground" target="1.10" />
       <module name="servlet" target="1.10" />
       <module name="spring" target="1.10" />
