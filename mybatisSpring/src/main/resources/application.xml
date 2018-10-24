@@ -9,4 +9,5 @@
 
     <!-- jdbc template -->
     <import resource="jdbc.xml"/>
+    <import resource="mybatis-spring-config.xml"/>
 </beans>

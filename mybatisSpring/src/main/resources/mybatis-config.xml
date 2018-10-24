@@ -45,6 +45,6 @@
         </environment>
     </environments>
     <mappers>
-
+        <mapper resource="basic-xml-mapper.xml"/>
     </mappers>
 </configuration>
