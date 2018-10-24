@@ -24,6 +24,7 @@ public class Run {
     public void run2() {
         ApplicationContext context = new ClassPathXmlApplicationContext("application.xml");
 
+        // ## todo SqlSessionFactoryBean factory = (SqlSessionFactoryBean) context.getBean("sqlSessionFactory"); // 不可这么获取
         // 通过配置资源对象获取 userDAO 对象
         AccountDao accountDao = (AccountDao) context.getBean("accountDao");
         // 调用 UserDAO 的方法

@@ -8,16 +8,15 @@
 
 
 
+    <!-- 可以通过运行 -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="configLocation" value="classpath:mybatis-config.xml"/>
         <property name="dataSource" ref="basicDataSource"/>
     </bean>
 
-
     <!-- 原始 DAO 接口 -->
     <bean id="accountDao" class="net.htmlonline.dao.AccountDaoImpl">
         <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
     </bean>
-
 
 </beans>
