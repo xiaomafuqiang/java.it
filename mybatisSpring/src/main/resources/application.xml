@@ -7,7 +7,15 @@
     <!--<bean id="" class="net"/>-->
 
 
-    <!-- jdbc template -->
-    <import resource="jdbc.xml"/>
-    <import resource="mybatis-spring-config.xml"/>
+    <!-- datasource bean 注入 -->
+    <import resource="config-spring-datasource.xml"/>
+    <!-- sqlSessionFactory bean 注入-->
+    <import resource="config-spring--mybatis-create-session-factory.xml"/>
+
+    <!-- use dao mapper -->
+    <!--
+        AccountDaoImpl extends SqlSessionDaoSupport implements AccountDao:
+            (SqlSessionDaoSupport支持方法: SqlSession sqlSession = this.getSqlSession())
+    -->
+    <import resource="config-spring-mybatis-dao-use-session-factory.xml"/>
 </beans>

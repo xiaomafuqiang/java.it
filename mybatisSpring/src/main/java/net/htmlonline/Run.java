@@ -31,9 +31,9 @@ public class Run {
         // accountDao方式获取调用 ok
         AccountDao accountDao = (AccountDao) context.getBean("accountDao");
         // 调用 UserDAO 的方法
-        Account userById = accountDao.findUserById(14);
+        Account account = accountDao.findUserById(14);
         // 输出用户信息
-        System.out.println(userById.getId() + ":" + userById.getMoney());
+        System.out.println(account);
     }
 
 
