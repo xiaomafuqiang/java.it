@@ -9,6 +9,11 @@
 
 
     <!-- 可以通过运行 -->
+    <!--
+        bean不可以直接获取需要通过另外:
+            // ##todo ## accountDao方式获取调用 : class AccountDaoImpl extends SqlSessionDaoSupport implements AccountDao {}
+        context.getBean("sqlSessionFactory", SqlSessionFactoryBean.class); // error: actually of type 'org.apache.ibatis.session.defaults.DefaultSqlSessionFactory'
+    -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="configLocation" value="classpath:mybatis-config.xml"/>
         <property name="dataSource" ref="basicDataSource"/>

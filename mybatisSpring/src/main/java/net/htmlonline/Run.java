@@ -6,6 +6,7 @@ import net.htmlonline.util.Utils;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.junit.jupiter.api.Test;
+import org.mybatis.spring.SqlSessionFactoryBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -22,8 +23,12 @@ public class Run {
     public void run2() {
         ApplicationContext context = new ClassPathXmlApplicationContext("application.xml");
 
-        // ## todo SqlSessionFactoryBean factory = (SqlSessionFactoryBean) context.getBean("sqlSessionFactory"); // 不可这么获取
-        // 通过配置资源对象获取 userDAO 对象
+        // ##  // 不可这么获取 error accountDao方式获取调用
+        // error: actually of type 'org.apache.ibatis.session.defaults.DefaultSqlSessionFactory'
+        // context.getBean("sqlSessionFactory", SqlSessionFactoryBean.class);
+        // SqlSessionFactoryBean factory = (SqlSessionFactoryBean) context.getBean("sqlSessionFactory");
+
+        // accountDao方式获取调用 ok
         AccountDao accountDao = (AccountDao) context.getBean("accountDao");
         // 调用 UserDAO 的方法
         Account userById = accountDao.findUserById(14);
