@@ -6,7 +6,7 @@
     root configure...
 -->
 <hibernate-mapping>
-    <class name="net.htmlonline.domain.Customer" table="cst_customer">
+    <class name="net.htmlonline.controller.htmlonline.domain.Customer" table="cst_customer">
         <id name="cust_id">
             <generator class="native"/>
         </id>

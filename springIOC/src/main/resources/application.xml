@@ -6,27 +6,27 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
     http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
-    <!-- net.htmlonline.components tests -->
+    <!-- net.htmlonline.controller.htmlonline.components tests -->
     <!--context:component-scan 类级别注解 -->
-    <context:component-scan base-package="net.htmlonline.components" />
+    <context:component-scan base-package="net.htmlonline.controller.htmlonline.components" />
 
-    <!-- net.htmlonline.xml.config.Company tests -->
+    <!-- net.htmlonline.controller.htmlonline.xml.config.Company tests -->
     <!-- annotation config 开启属性注入注解, 苟泽可能不生效 -->
     <context:annotation-config />
-    <bean id="company" class="net.htmlonline.xml.config.Company"/>
+    <bean id="company" class="net.htmlonline.controller.htmlonline.xml.config.Company"/>
 
     <!-- aop -->
-    <bean id="productDaoImpl" class="net.htmlonline.aop.xml.ProductDaoImpl"/>
-    <bean id="myAspect" class="net.htmlonline.aop.xml.MyAspectXml"/>
+    <bean id="productDaoImpl" class="net.htmlonline.controller.htmlonline.aop.xml.ProductDaoImpl"/>
+    <bean id="myAspect" class="net.htmlonline.controller.htmlonline.aop.xml.MyAspectXml"/>
     <!-- 默认jdk 方式代理 -->
     <!-- 开启cglib, 也是开启注解 -->
     <aop:aspectj-autoproxy proxy-target-class="true"/>
     <aop:config>
         <!-- 定义一系列要拦截切点 在aspect使用 -->
-        <aop:pointcut id="pointCut1" expression="execution(* net.htmlonline.aop.xml.ProductDao.save(..))" />
-        <aop:pointcut id="pointCut2" expression="execution(* net.htmlonline.aop.xml.ProductDao.delete(..))" />
-        <aop:pointcut id="pointCut3" expression="execution(* net.htmlonline.aop.xml.ProductDao.update(..))" />
-        <aop:pointcut id="pointCut4" expression="execution(* net.htmlonline.aop.xml.ProductDao.find(..))" />
+        <aop:pointcut id="pointCut1" expression="execution(* net.htmlonline.controller.htmlonline.aop.xml.ProductDao.save(..))" />
+        <aop:pointcut id="pointCut2" expression="execution(* net.htmlonline.controller.htmlonline.aop.xml.ProductDao.delete(..))" />
+        <aop:pointcut id="pointCut3" expression="execution(* net.htmlonline.controller.htmlonline.aop.xml.ProductDao.update(..))" />
+        <aop:pointcut id="pointCut4" expression="execution(* net.htmlonline.controller.htmlonline.aop.xml.ProductDao.find(..))" />
 
         <aop:aspect ref="myAspect">
             <!-- 前置通知 -->
@@ -46,8 +46,8 @@
     <!-- aop 注解方式 -->
     <!-- 开启 -->
     <!--<aop:aspectj-autoproxy/>-->
-    <bean id="orderDaoImpl" class="net.htmlonline.aop.annotation.OrderDaoImpl"/>
-    <bean id="myAspectAnnotation" class="net.htmlonline.aop.annotation.MyAspectAnnotation"/>
+    <bean id="orderDaoImpl" class="net.htmlonline.controller.htmlonline.aop.annotation.OrderDaoImpl"/>
+    <bean id="myAspectAnnotation" class="net.htmlonline.controller.htmlonline.aop.annotation.MyAspectAnnotation"/>
 
 
 

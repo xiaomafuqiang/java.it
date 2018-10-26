@@ -7,7 +7,7 @@
 
 
     <!-- 原始 DAO 接口 -->
-    <bean id="accountDao" class="net.htmlonline.dao.AccountDaoImpl">
+    <bean id="accountDao" class="net.htmlonline.controller.htmlonline.dao.AccountDaoImpl">
         <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
     </bean>
 
