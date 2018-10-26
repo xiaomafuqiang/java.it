@@ -9,7 +9,6 @@ public class AccountMapperTest {
 
     @Test
     public void run() {
-        System.out.println(99);
         ApplicationContext context = new ClassPathXmlApplicationContext("application.xml");
         // AccountMapper accountMapper = context.getBean("accountMapper", AccountMapper.class); // 方式 一
          AccountMapper accountMapper = context.getBean(AccountMapper.class); // 方式二
