@@ -45,6 +45,11 @@
         </environment>
     </environments>
     <mappers>
-        <mapper resource="mybatis-basic-xml-mapper.xml"/>
+        <!-- test first run -->
+        <mapper resource="default.mapper/mybatis-basic-xml-mapper.xml"/>
+
+        <!-- mappers -->
+        <mapper resource="mapper/AccountMapper.xml"/>
+
     </mappers>
 </configuration>

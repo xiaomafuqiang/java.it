@@ -12,10 +12,22 @@
     <!-- sqlSessionFactory bean 注入-->
     <import resource="config-spring--mybatis-create-session-factory.xml"/>
 
-    <!-- use dao mapper -->
+    <!-- // todo ① use dao mapper -->
+    <!--
+       原始方式 @@
+    -->
     <!--
         AccountDaoImpl extends SqlSessionDaoSupport implements AccountDao:
             (SqlSessionDaoSupport支持方法: SqlSession sqlSession = this.getSqlSession())
     -->
     <import resource="config-spring-mybatis-dao-use-session-factory.xml"/>
+
+    <!-- // todo ② mapper factory -->
+    <!--
+        完全配置方式 @@
+    -->
+    <bean id="accountMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+        <property name="mapperInterface" value="net.htmlonline.mapper.AccountMapper"/>
+    </bean>
 </beans>
