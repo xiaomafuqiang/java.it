@@ -1,17 +1,16 @@
-package net.htmlonline.mapper;
+package net.htmlonline.mapper.scanner;
 
 import net.htmlonline.domain.Account;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class AccountMapperTest {
+public class AccountScannerMapperTest {
     private ApplicationContext context = new ClassPathXmlApplicationContext("application.xml");
 
     @Test
     public void run() {
-        // AccountMapper accountMapper = context.getBean("accountMapper", AccountMapper.class); // 方式 一
-        AccountMapper accountMapper = context.getBean(AccountMapper.class); // 方式二
+        AccountScannerMapper accountMapper = context.getBean(AccountScannerMapper.class); // 方式二
         Account accoutById = accountMapper.getAccountById(14);
         System.out.println(accoutById);
     }
