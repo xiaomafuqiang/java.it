@@ -8,16 +8,16 @@
 
         <!-- ********************* -->
         <!-- 数据封装 ① -->
-        <action name="user1" class="net.htmlonline.controller.htmlonline.actions.data.encapsulation.UserActionPrepared1"/>
+        <action name="user1" class="net.htmlonline.controller.C.actions.data.encapsulation.UserActionPrepared1"/>
         <!-- 数据封装 ② -->
-        <action name="user2" class="net.htmlonline.controller.htmlonline.actions.data.encapsulation.UserActionPrepared2"/>
+        <action name="user2" class="net.htmlonline.controller.C.actions.data.encapsulation.UserActionPrepared2"/>
         <!-- 数据封装 ③ -->
-        <action name="user3" class="net.htmlonline.controller.htmlonline.actions.data.encapsulation.UserActionPrepared3"/>
+        <action name="user3" class="net.htmlonline.controller.C.actions.data.encapsulation.UserActionPrepared3"/>
 
         <!-- 复杂数据封装 -->
         <!-- 数据封装 -->
-        <action name="userList" class="net.htmlonline.controller.htmlonline.actions.data.encapsulation.UserActionPreparedList"/>
-        <action name="userMap" class="net.htmlonline.controller.htmlonline.actions.data.encapsulation.UserActionPreparedMap"/>
+        <action name="userList" class="net.htmlonline.controller.C.actions.data.encapsulation.UserActionPreparedList"/>
+        <action name="userMap" class="net.htmlonline.controller.C.actions.data.encapsulation.UserActionPreparedMap"/>
 
     </package>
 </struts>

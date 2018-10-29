@@ -11,7 +11,7 @@
         <!-- ********************* -->
         <!-- action 匹配 -->
         <!-- url: product_find 将会调用class find 方法-->
-        <action name="requests_*" class="net.htmlonline.controller.htmlonline.actions.servlet.api.Requests" method="{1}"/>
+        <action name="requests_*" class="net.htmlonline.controller.C.actions.servlet.api.Requests" method="{1}"/>
 
     </package>
 </struts>

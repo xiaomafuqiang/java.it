@@ -6,7 +6,7 @@
     root configure...
 -->
 <hibernate-mapping>
-    <class name="net.htmlonline.controller.htmlonline.domain.multiple.manytomany.User" table="sys_user">
+    <class name="net.htmlonline.controller.C.domain.multiple.manytomany.User" table="sys_user">
         <id name="user_id">
             <generator class="native"/>
         </id>
@@ -28,7 +28,7 @@
         -->
         <set name="roles" table="sys_user_role">
             <key column="user_id"></key>
-            <many-to-many class="net.htmlonline.controller.htmlonline.domain.multiple.manytomany.Role" column="role_id"/>
+            <many-to-many class="net.htmlonline.controller.C.domain.multiple.manytomany.Role" column="role_id"/>
         </set>
 
 
