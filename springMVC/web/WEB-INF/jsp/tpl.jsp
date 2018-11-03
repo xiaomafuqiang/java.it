@@ -4,7 +4,7 @@
 </head>
 <body>
 
-<h1>in.html</h1>
+<h1>template.html</h1>
 
 </body>
 </html>
