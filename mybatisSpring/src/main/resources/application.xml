@@ -28,7 +28,7 @@
     -->
     <bean id="accountMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
         <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
-        <property name="mapperInterface" value="net.htmlonline.controller.C.mapper.AccountMapper"/>
+        <property name="mapperInterface" value="net.htmlonline.mapper.AccountMapper"/>
     </bean>
 
     <!-- // todo ③ mapper scanner -->
@@ -48,6 +48,6 @@
                 必须配置一个以sqlSessionFactory命名的org.mybatis.spring.SqlSessionFactoryBean
         -->
         <!--<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>-->
-        <property name="basePackage" value="net.htmlonline.controller.C.mapper.scanner"/>
+        <property name="basePackage" value="net.htmlonline.mapper.scanner"/>
     </bean>
 </beans>
