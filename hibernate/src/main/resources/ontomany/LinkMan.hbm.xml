@@ -6,7 +6,7 @@
     root configure...
 -->
 <hibernate-mapping>
-    <class name="net.htmlonline.controller.C.domain.multiple.ontomany.LinkMan" table="cst_linkman">
+    <class name="net.htmlonline.web.controller.C.domain.multiple.ontomany.LinkMan" table="cst_linkman">
         <id name="lkm_id">
             <generator class="native"/>
         </id>
@@ -25,7 +25,7 @@
             class: 一方全类名
             column: 在多的一方外健名称
         -->
-        <many-to-one name="customer" class="net.htmlonline.controller.C.domain.multiple.ontomany.Customer" cascade="save-update" column="lkm_cust_id"/>
+        <many-to-one name="customer" class="net.htmlonline.web.controller.C.domain.multiple.ontomany.Customer" cascade="save-update" column="lkm_cust_id"/>
 
     </class>
 </hibernate-mapping>

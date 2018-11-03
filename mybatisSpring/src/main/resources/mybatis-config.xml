@@ -26,10 +26,10 @@
    -->
     <typeAliases>
         <!-- 默认别名: 类名小写 alias属性制定命名 -->
-        <!--<typeAlias type="net.htmlonline.controller.C.dao.Employee"/>-->
-        <!--<typeAlias type="net.htmlonline.controller.C.dao.Employee" alias="emp"/>-->
+        <!--<typeAlias type="net.htmlonline.web.controller.C.dao.Employee"/>-->
+        <!--<typeAlias type="net.htmlonline.web.controller.C.dao.Employee" alias="emp"/>-->
         <!-- 扫描包/子包 自动命名， 如果有冲突， 可以用注解@Alias(name) 区分 -->
-        <!--<package name="net.htmlonline.controller.C.dao"/>-->
+        <!--<package name="net.htmlonline.web.controller.C.dao"/>-->
     </typeAliases>
 
 

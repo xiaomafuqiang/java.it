@@ -6,10 +6,10 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
       http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
-    <bean id="accountDao2" class="net.htmlonline.controller.C.jdbc.transaction.aop.xml.dao.AccountDaoImpl">
+    <bean id="accountDao2" class="net.htmlonline.web.controller.C.jdbc.transaction.aop.xml.dao.AccountDaoImpl">
         <property name="jdbcTemplate" ref="jdbcTemplate"/>
     </bean>
-    <bean id="accountService2" class="net.htmlonline.controller.C.jdbc.transaction.aop.xml.service.AccountServiceImpl">
+    <bean id="accountService2" class="net.htmlonline.web.controller.C.jdbc.transaction.aop.xml.service.AccountServiceImpl">
         <property name="accountDao" ref="accountDao2"/>
     </bean>
 
@@ -33,7 +33,7 @@
     <!-- 开启cglib, 也是开启注解 -->
     <aop:aspectj-autoproxy proxy-target-class="true"/>
     <aop:config>
-        <aop:pointcut id="pointCut1" expression="execution(* net.htmlonline.controller.C.jdbc.transaction.aop.xml.service.AccountServiceImpl.*(..))" />
+        <aop:pointcut id="pointCut1" expression="execution(* net.htmlonline.web.controller.C.jdbc.transaction.aop.xml.service.AccountServiceImpl.*(..))" />
         <aop:advisor advice-ref="txAdvice" pointcut-ref="pointCut1"/>
     </aop:config>
 

@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="net.htmlonline.controller.C.mapper.OrderMOne2OneMapper">
+<mapper namespace="net.htmlonline.web.controller.C.mapper.OrderMOne2OneMapper">
 
     <!-- 定义 result mappings 手动映射 -->
     <!--
@@ -14,18 +14,18 @@
                 -property 类中属性名
                 -javaType="" jdbcType="" typeHandler=""
     -->
-    <resultMap id="orders" type="net.htmlonline.controller.C.domain.onetoone.Orderm">
+    <resultMap id="orders" type="net.htmlonline.web.controller.C.domain.onetoone.Orderm">
         <id column="o_id" property="oid" />
         <result column="name" property="name"/>
         <result column="dates" property="dates"/>
         <result column="money" property="money"/>
-        <association property="userm" javaType="net.htmlonline.controller.C.domain.onetoone.Userm">
+        <association property="userm" javaType="net.htmlonline.web.controller.C.domain.onetoone.Userm">
             <id column="uid" property="uid"/>
             <result column="name" property="name"/>
             <result column="age" property="age"/>
         </association>
     </resultMap>
-    <select id="selectOrder" resultType="net.htmlonline.controller.C.domain.onetoone.Orderm" resultMap="orders">
+    <select id="selectOrder" resultType="net.htmlonline.web.controller.C.domain.onetoone.Orderm" resultMap="orders">
         select *
         from orderm o
             left join userm u on o.uid = u.uid;

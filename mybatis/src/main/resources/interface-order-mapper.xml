@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="net.htmlonline.controller.C.mapper.OrderMapper">
+<mapper namespace="net.htmlonline.web.controller.C.mapper.OrderMapper">
 
     <!-- 定义 result mappings 手动映射 -->
     <!--
@@ -14,10 +14,10 @@
                 -property 类中属性名
                 -javaType="" jdbcType="" typeHandler=""
     -->
-    <resultMap id="orders" type="net.htmlonline.controller.C.domain.Order">
+    <resultMap id="orders" type="net.htmlonline.web.controller.C.domain.Order">
         <result column="o_id" property="oid" />
     </resultMap>
-    <select id="selectOrder" resultType="net.htmlonline.controller.C.domain.Order" resultMap="orders">
+    <select id="selectOrder" resultType="net.htmlonline.web.controller.C.domain.Order" resultMap="orders">
         select * from orderm
     </select>
 
@@ -31,7 +31,7 @@
     <sql id="selector">
         select * from orderm
     </sql>
-    <select id="selectOrderByNameAndMoney1" resultType="net.htmlonline.controller.C.domain.Order" resultMap="orders">
+    <select id="selectOrderByNameAndMoney1" resultType="net.htmlonline.web.controller.C.domain.Order" resultMap="orders">
         <include refid="selector"/>
         <where>
 
@@ -43,11 +43,11 @@
             </if>
         </where>
     </select>
-    <select id="selectOrderByNameAndMoney2" resultType="net.htmlonline.controller.C.domain.Order" resultMap="orders">
+    <select id="selectOrderByNameAndMoney2" resultType="net.htmlonline.web.controller.C.domain.Order" resultMap="orders">
         <include refid="selector"/>
          where name=#{order.name} and money=#{order.money}
     </select>
-    <select id="selectOrderByNameAndMoney3" resultType="net.htmlonline.controller.C.domain.Order" resultMap="orders">
+    <select id="selectOrderByNameAndMoney3" resultType="net.htmlonline.web.controller.C.domain.Order" resultMap="orders">
         <include refid="selector"/>
         <where>
 
@@ -60,7 +60,7 @@
         </where>
     </select>
 
-    <select id="selectOrderByNameAndMoney4" resultType="net.htmlonline.controller.C.domain.OrderProxy" resultMap="orders">
+    <select id="selectOrderByNameAndMoney4" resultType="net.htmlonline.web.controller.C.domain.OrderProxy" resultMap="orders">
         <include refid="selector"/>
         <where>
             o_id in

@@ -11,6 +11,6 @@
         <!-- 2.5 版本增加安全方式 允许通配符调用配置-->
         <global-allowed-methods>regex:.*</global-allowed-methods>
 
-        <action name="customer_*" class="net.htmlonline.controller.C.web.action.CustomerAction" method="{1}" />
+        <action name="customer_*" class="net.htmlonline.web.controller.C.web.action.CustomerAction" method="{1}" />
     </package>
 </struts>
