@@ -2,23 +2,23 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="net.htmlonline.web.controller.C.mapper.AccountMapper">
+<mapper namespace="net.htmlonline.mapper.AccountMapper">
 
-    <select id="selectAccount" parameterType="Integer" resultType="net.htmlonline.web.controller.C.domain.Account">
+    <select id="selectAccount" parameterType="Integer" resultType="net.htmlonline.domain.Account">
         select * from account where id=#{id}
     </select>
 
     <!-- 包装类型写法 -->
-    <select id="selectAccountProxyList" parameterType="net.htmlonline.web.controller.C.domain.AccountProxy" resultType="net.htmlonline.web.controller.C.domain.Account">
+    <select id="selectAccountProxyList" parameterType="net.htmlonline.domain.AccountProxy" resultType="net.htmlonline.domain.Account">
         select * from account where name like '%${proxy.account.name}%'
     </select>
 
-    <select id="selectList" resultType="net.htmlonline.web.controller.C.domain.Account">
+    <select id="selectList" resultType="net.htmlonline.domain.Account">
         select * from account
     </select>
 
 
-    <insert id="insertAccount" parameterType="net.htmlonline.web.controller.C.domain.Account">
+    <insert id="insertAccount" parameterType="net.htmlonline.domain.Account">
         <selectKey keyProperty="id" resultType="Integer" order="AFTER">
             select LAST_INSERT_ID()
         </selectKey>

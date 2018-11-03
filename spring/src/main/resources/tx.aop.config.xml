@@ -6,10 +6,10 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
       http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
-    <bean id="accountDao3" class="net.htmlonline.web.controller.C.jdbc.transaction.aop.config.dao.AccountDaoImpl">
+    <bean id="accountDao3" class="net.htmlonline.jdbc.transaction.aop.config.dao.AccountDaoImpl">
         <property name="jdbcTemplate" ref="jdbcTemplate"/>
     </bean>
-    <bean id="accountService3" class="net.htmlonline.web.controller.C.jdbc.transaction.aop.config.service.AccountServiceImpl">
+    <bean id="accountService3" class="net.htmlonline.jdbc.transaction.aop.config.service.AccountServiceImpl">
         <property name="accountDao" ref="accountDao3"/>
     </bean>
 

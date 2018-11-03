@@ -11,7 +11,7 @@
         [
             name实体类名, table(可选类名) 表名  , catalog数据库名
     -->
-    <class name="net.htmlonline.web.controller.C.domain.Replay.CustomerMe" table="customer" >
+    <class name="net.htmlonline.domain.Replay.CustomerMe" table="customer" >
         <!--
             id: 主键定义
             == generator: 主键生成策略

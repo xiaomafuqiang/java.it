@@ -6,7 +6,7 @@
     root configure...
 -->
 <hibernate-mapping>
-    <class name="net.htmlonline.web.controller.C.domain.multiple.manytomany.Role" table="sys_role">
+    <class name="net.htmlonline.domain.multiple.manytomany.Role" table="sys_role">
         <id name="role_id">
             <generator class="native"/>
         </id>
@@ -25,7 +25,7 @@
                     * class		：对方的类的全路径
                     * column	：对方的对象在中间表中的外键的名称。
              -->
-            <many-to-many class="net.htmlonline.web.controller.C.domain.multiple.manytomany.User" column="user_id"/>
+            <many-to-many class="net.htmlonline.domain.multiple.manytomany.User" column="user_id"/>
         </set>
 
     </class>

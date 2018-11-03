@@ -5,34 +5,34 @@
       http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <!-- init -->
-    <bean name="userservice" class="net.htmlonline.web.controller.C.domain.UserServiceImpl" scope="prototype" init-method="initMethod" destroy-method="destroyed">
+    <bean name="userservice" class="net.htmlonline.domain.UserServiceImpl" scope="prototype" init-method="initMethod" destroy-method="destroyed">
         <property name="name" value="小马"/>
     </bean>
 
     <!-- 构造注入 -->
-    <bean id="car" class="net.htmlonline.web.controller.C.di.Car">
+    <bean id="car" class="net.htmlonline.di.Car">
         <constructor-arg name="name" value="benz"/>
         <constructor-arg name="price" value="90000" type="java.lang.Double"/>
     </bean>
     <!-- setter 注入 -->
-    <!--<bean id="car2" class="net.htmlonline.web.controller.C.di.Car">-->
+    <!--<bean id="car2" class="net.htmlonline.di.Car">-->
         <!--<property name="name" value="BMW"/>-->
         <!--<property name="price" value="67000D"/>-->
     <!--</bean>-->
-    <bean id="car2" class="net.htmlonline.web.controller.C.di.Car" p:name="奇瑞QQ" p:price="30000"/>
+    <bean id="car2" class="net.htmlonline.di.Car" p:name="奇瑞QQ" p:price="30000"/>
 
-    <!--<bean id="employee" class="net.htmlonline.web.controller.C.di.Employee">-->
+    <!--<bean id="employee" class="net.htmlonline.di.Employee">-->
         <!--<property name="name" value="wo"/>-->
         <!--<property name="car" ref="car"/>-->
     <!--</bean>-->
-    <bean id="employee" class="net.htmlonline.web.controller.C.di.Employee" p:name="wo" p:car-ref="car2"/>
+    <bean id="employee" class="net.htmlonline.di.Employee" p:name="wo" p:car-ref="car2"/>
 
     <!-- spring expression language -->
-    <bean id="car3" class="net.htmlonline.web.controller.C.di.Car">
+    <bean id="car3" class="net.htmlonline.di.Car">
         <property name="name" value="#{'xiaoma'}"/>
         <property name="price" value="#{car.getInt()}" />
     </bean>
-    <bean id="employee2" class="net.htmlonline.web.controller.C.di.Employee">
+    <bean id="employee2" class="net.htmlonline.di.Employee">
         <property name="name" value="pppp"/>
         <property name="car" value="#{car3}"/>
     </bean>

@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="net.htmlonline.web.controller.C.mapper.OrderMany2OneMapper">
+<mapper namespace="net.htmlonline.mapper.OrderMany2OneMapper">
 
     <!-- 定义 result mappings 手动映射 -->
     <!--
@@ -14,20 +14,20 @@
                 -property 类中属性名
                 -javaType="" jdbcType="" typeHandler=""
     -->
-    <resultMap id="orders" type="net.htmlonline.web.controller.C.domain.manytoone.Userm">
+    <resultMap id="orders" type="net.htmlonline.domain.manytoone.Userm">
         <id column="uid" property="uid"/>
         <result column="name" property="name"/>
         <result column="age" property="age"/>
 
 
-        <collection property="list" ofType="net.htmlonline.web.controller.C.domain.manytoone.Orderm">
+        <collection property="list" ofType="net.htmlonline.domain.manytoone.Orderm">
             <id column="o_id" property="oid" />
             <result column="names" property="name"/>
             <result column="dates" property="dates"/>
             <result column="money" property="money"/>
         </collection>
     </resultMap>
-    <select id="selectOrder" resultType="net.htmlonline.web.controller.C.domain.manytoone.Userm" resultMap="orders">
+    <select id="selectOrder" resultType="net.htmlonline.domain.manytoone.Userm" resultMap="orders">
         select o.uid, o.name, o.age, u.o_id, u.name as names, u.dates, u.money
         from userm o
             left join orderm u on o.uid = u.uid;
