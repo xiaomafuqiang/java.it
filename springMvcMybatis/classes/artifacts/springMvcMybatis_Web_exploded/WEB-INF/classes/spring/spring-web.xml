@@ -4,16 +4,6 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans      http://www.springframework.org/schema/beans/spring-beans.xsd      http://www.springframework.org/schema/context      http://www.springframework.org/schema/context/spring-context.xsd      http://www.springframework.org/schema/mvc      http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
-
-    <!--
-
-         第三步：配置web，在spring文件夹里新建spring-web.xml
-         1.开启SpringMVC注解模式，可以使用@RequestMapping，@PathBariable，@ResponseBady等
-         2.对静态资源的处理 ，如js，css，jsp等
-         3.配置警示牌、显示ViewResolver,例如controller中某个方法返回一个string类型的“login”，实际上回返回“WEB-INF/login.jsp”
-         4.扫描web层的@Controller注解
-    -->
-
     <!-- 配置SpringMVC -->
     <!-- 1.开启SpringMVC注解模式 -->
     <!-- 简化配置：

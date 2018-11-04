@@ -4,13 +4,6 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:tx="http://www.springframework.org/schema/tx"
        xsi:schemaLocation="http://www.springframework.org/schema/beans      http://www.springframework.org/schema/beans/spring-beans.xsd      http://www.springframework.org/schema/context      http://www.springframework.org/schema/context/spring-context.xsd      http://www.springframework.org/schema/tx      http://www.springframework.org/schema/tx/spring-tx.xsd">
-    <!--
-         第二步：刚弄好到层，接下来service层。在spring文件夹创建spring-service.xml
-         1.扫描service包所有的@Service注解
-         2.配置事务管理器，把事物交有spring来完成
-         3.配置基于注解的声明事物，可以直接在方法上@Transaction
-    -->
-
     <!-- 扫描service包下所有使用注解的类型 -->
     <!--<context:component-scan base-package="com.soecode.lyf.service" />-->
     <context:component-scan base-package="net.htmlonline.service" />

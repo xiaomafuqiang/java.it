@@ -3,14 +3,6 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-    <!--
-
-         因为这里用到mybatis，所以需要mybatis核心文件，在recourse文件夹里新建mybatis-config.xml
-         1.使用自增主键
-         2.使用列别名
-         3.开启驼峰命名转换create_time ->createTime
-    -->
-
     <!-- 配置全局属性 -->
     <settings>
         <!-- 使用jdbc的getGeneratedKeys获取数据库自增主键值 -->

@@ -2,20 +2,6 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans      http://www.springframework.org/schema/beans/spring-beans.xsd      http://www.springframework.org/schema/context      http://www.springframework.org/schema/context/spring-context.xsd">
-
-    <!--
-
-         第一步：先在spring文件夹里新建spring-dao.xml文件
-         dao service web
-         1.读入数据库连接的相关参数
-         2.配置数据连接池
-         3.配置连接属性，
-         4.配置c3p0，只配了几个常用的
-         5.配置SqlSessionFactory对象（mybatis）
-         6.扫描dao层接口，动态实现dao接口
-
-    -->
-
     <!-- 配置整合mybatis过程 -->
     <!-- 1.配置数据库相关参数properties的属性：${url} -->
     <context:property-placeholder location="classpath:jdbc.properties" />
