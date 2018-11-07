@@ -2,9 +2,12 @@ package net.htmlonline.web.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 @Controller
 public class RunController {
@@ -33,5 +36,15 @@ public class RunController {
 
         return view;
 
+    }
+
+
+    @RequestMapping("/obj")
+    @ResponseBody
+    public String obj(Map<String, String> obj){
+
+        System.out.println(obj);
+
+        return "hello";
     }
 }
