@@ -13,7 +13,6 @@
       <module fileurl="file://$PROJECT_DIR$/springIOC/springIOC.iml" filepath="$PROJECT_DIR$/springIOC/springIOC.iml" />
       <module fileurl="file://$PROJECT_DIR$/springMVC/springMVC.iml" filepath="$PROJECT_DIR$/springMVC/springMVC.iml" />
       <module fileurl="file://$PROJECT_DIR$/springMvcMybatis/springMvcMybatis.iml" filepath="$PROJECT_DIR$/springMvcMybatis/springMvcMybatis.iml" />
-      <module fileurl="file://$PROJECT_DIR$/springMvcMybatis/springMvcMybatis.iml" filepath="$PROJECT_DIR$/springMvcMybatis/springMvcMybatis.iml" />
       <module fileurl="file://$PROJECT_DIR$/struts/struts.iml" filepath="$PROJECT_DIR$/struts/struts.iml" />
       <module fileurl="file://$PROJECT_DIR$/strutscrm/strutscrm.iml" filepath="$PROJECT_DIR$/strutscrm/strutscrm.iml" />
       <module fileurl="file://$PROJECT_DIR$/student/student.iml" filepath="$PROJECT_DIR$/student/student.iml" />
